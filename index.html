@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoVault - Digital Wallet</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
     <style>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -12,43 +14,103 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
-    <div id="app" class="p-6">
-        <div class="max-w-7xl mx-auto">
-            <!-- Header -->
-            <div class="flex justify-between items-center mb-8">
-                <div class="flex items-center gap-3 cursor-pointer" id="logo">
-                    <div class="bg-purple-600 p-3 rounded-xl">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                        </svg>
+
+<!-- Login Screen -->
+<div id="loginScreen" class="flex items-center justify-center min-h-screen p-6">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 w-full max-w-md">
+        <div class="flex justify-center mb-6">
+            <div class="bg-purple-600 p-4 rounded-xl">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+            </div>
+        </div>
+        <h1 class="text-3xl font-bold text-white text-center mb-2">CryptoVault</h1>
+        <p class="text-slate-400 text-center mb-8">Sign in to your wallet</p>
+        
+        <div class="space-y-4">
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Email Address</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+            </div>
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+            </div>
+            <button id="loginBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
+                Sign In
+            </button>
+            <div class="pt-4 border-t border-slate-700">
+                <p class="text-slate-400 text-sm text-center mb-3">Demo Accounts:</p>
+                <div class="space-y-2 text-xs">
+                    <div class="bg-slate-900 p-3 rounded-lg">
+                        <p class="text-slate-300"><span class="font-semibold text-purple-400">Jimmy James:</span> jimmy@cryptovault.com / password123</p>
                     </div>
-                    <div>
-                        <h1 class="text-3xl font-bold text-white">CryptoVault</h1>
-                        <p class="text-purple-300 text-sm">Your Digital Wallet</p>
+                    <div class="bg-slate-900 p-3 rounded-lg">
+                        <p class="text-slate-300"><span class="font-semibold text-pink-400">Grace Charis:</span> grace@cryptovault.com / password123</p>
+                    </div>
+                    <div class="bg-slate-900 p-3 rounded-lg border border-yellow-700/50">
+                        <p class="text-slate-300"><span class="font-semibold text-yellow-400">Admin:</span> admin@cryptovault.com / admin123</p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-3 bg-slate-800 px-4 py-2 rounded-lg border border-slate-700">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold" id="userAvatar">
-                            JJ
-                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main App -->
+<div id="app" class="hidden p-6">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-3">
+                <div class="bg-purple-600 p-3 rounded-xl">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold text-white">CryptoVault</h1>
+                    <p class="text-purple-300 text-sm">Your Digital Wallet</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3 bg-slate-800 px-4 py-2 rounded-lg border border-slate-700">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold" id="userAvatar">
+                    </div>
+                    <div>
+                        <p class="text-white font-semibold text-sm" id="userName"></p>
+                        <p class="text-slate-400 text-xs" id="userRole">Account Holder</p>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- User Dashboard -->
+        <div id="userDashboard">
+            <!-- Wallet Address -->
+            <div class="bg-slate-800 rounded-xl p-4 mb-6 border border-slate-700">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                        </svg>
                         <div>
-                            <p class="text-white font-semibold text-sm" id="userName">Jimmy James</p>
-                            <p class="text-slate-400 text-xs">Account Holder</p>
+                            <p class="text-slate-400 text-xs">Wallet Address</p>
+                            <p class="text-white font-mono text-sm" id="walletAddress"></p>
                         </div>
                     </div>
-                    <button id="switchUserBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-3 py-2 rounded-lg transition text-sm">
-                        Switch User
-                    </button>
-                    <button id="adminBtn" class="hidden bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition">
-                        <span id="adminBtnText">Admin Panel</span>
+                    <button onclick="copyAddress()" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-xs transition">
+                        Copy
                     </button>
                 </div>
             </div>
 
-
-        <!-- Main Dashboard -->
-        <div id="dashboard">
             <!-- Total Balance Card -->
             <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-6 shadow-2xl">
                 <p class="text-purple-200 text-sm mb-2">Total Portfolio Value</p>
@@ -63,7 +125,6 @@
 
             <!-- Holdings Grid -->
             <div class="grid md:grid-cols-3 gap-6 mb-6">
-                <!-- Bitcoin Card -->
                 <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
                     <div class="flex justify-between items-start mb-4">
                         <div>
@@ -77,7 +138,6 @@
                     <p class="text-slate-400 text-sm" id="btcValue">$0.00</p>
                 </div>
 
-                <!-- Ethereum Card -->
                 <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
                     <div class="flex justify-between items-start mb-4">
                         <div>
@@ -91,7 +151,6 @@
                     <p class="text-slate-400 text-sm" id="ethValue">$0.00</p>
                 </div>
 
-                <!-- USDT Card -->
                 <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
                     <div class="flex justify-between items-start mb-4">
                         <div>
@@ -114,89 +173,49 @@
         </div>
 
         <!-- Admin Panel -->
-        <div id="adminPanel" class="hidden bg-slate-800 rounded-xl p-8 border border-slate-700">
-            <h2 class="text-2xl font-bold text-white mb-6">Admin Control Panel</h2>
-            
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-slate-300 mb-2">Select Cryptocurrency</label>
-                    <select id="cryptoSelect" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-                        <option value="btc">Bitcoin (BTC)</option>
-                        <option value="eth">Ethereum (ETH)</option>
-                        <option value="usdt">Tether (USDT)</option>
-                    </select>
+        <div id="adminPanel" class="hidden">
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- User Selection -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                    <h3 class="text-xl font-bold text-white mb-4">Select User</h3>
+                    <div class="space-y-3" id="userList"></div>
                 </div>
 
-                <div>
-                    <label class="block text-slate-300 mb-2">Amount to Add</label>
-                    <input type="number" id="topUpAmount" placeholder="0.00" step="0.0001" 
-                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-                </div>
-
-                <button id="topUpBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
-                    Top Up Balance
-                </button>
-
-                <div class="mt-6 pt-6 border-t border-slate-700">
-                    <h3 class="text-white font-semibold mb-3">Current Balances</h3>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-slate-300">
-                            <span>Bitcoin:</span>
-                            <span class="font-mono" id="adminBtc">0.0000 BTC</span>
-                        </div>
-                        <div class="flex justify-between text-slate-300">
-                            <span>Ethereum:</span>
-                            <span class="font-mono" id="adminEth">0.0000 ETH</span>
-                        </div>
-                        <div class="flex justify-between text-slate-300">
-                            <span>Tether:</span>
-                            <span class="font-mono" id="adminUsdt">0.00 USDT</span>
-                        </div>
+                <!-- Top Up Panel -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                    <h3 class="text-xl font-bold text-white mb-4">Top Up Balance</h3>
+                    <div id="topUpSection" class="space-y-4">
+                        <p class="text-slate-400 text-sm">Select a user from the list to top up their balance</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- All Users Overview -->
+            <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 mt-6">
+                <h3 class="text-xl font-bold text-white mb-4">All Users Overview</h3>
+                <div id="allUsersOverview"></div>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // User accounts
-    const users = {
-        jimmy: {
-            name: 'Jimmy James',
-            avatar: 'JJ',
-            balances: {
-                btc: 0.5234,
-                eth: 2.8901,
-                usdt: 5420.00
-            },
-            transactions: [
-                { type: 'received', crypto: 'BTC', amount: 0.0234, usd: 1012.05, date: '2025-11-14', from: '1A1z...k3P2' },
-                { type: 'sent', crypto: 'ETH', amount: 0.5, usd: 1140.25, date: '2025-11-13', to: '0x742...9fE3' },
-                { type: 'received', crypto: 'USDT', amount: 1000, usd: 1000.00, date: '2025-11-12', from: '0xA3B...7c21' },
-                { type: 'sent', crypto: 'BTC', amount: 0.01, usd: 432.50, date: '2025-11-10', to: '3FZb...m9N1' },
-            ]
-        },
-        grace: {
-            name: 'Grace Charis',
-            avatar: 'GC',
-            balances: {
-                btc: 1.2567,
-                eth: 5.4321,
-                usdt: 8950.00
-            },
-            transactions: [
-                { type: 'received', crypto: 'ETH', amount: 2.5, usd: 5701.25, date: '2025-11-14', from: '0x9F3...c8A1' },
-                { type: 'sent', crypto: 'BTC', amount: 0.05, usd: 2162.50, date: '2025-11-13', to: '1B7x...p4K9' },
-                { type: 'received', crypto: 'USDT', amount: 2500, usd: 2500.00, date: '2025-11-11', from: '0xD8F...2b3C' },
-                { type: 'sent', crypto: 'ETH', amount: 1.2, usd: 2736.60, date: '2025-11-09', to: '0x1E4...7fB2' },
-            ]
-        }
+    // Firebase Configuration (You need to replace with your own)
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT.firebaseapp.com",
+        databaseURL: "https://YOUR_PROJECT.firebaseio.com",
+        projectId: "YOUR_PROJECT_ID"
     };
 
-    let currentUser = 'jimmy';
-    let balances = {...users[currentUser].balances};
-    let transactions = [...users[currentUser].transactions];
+    // Initialize Firebase (if config is provided)
+    let database;
+    try {
+        firebase.initializeApp(firebaseConfig);
+        database = firebase.database();
+    } catch (e) {
+        console.log("Firebase not configured, using memory storage");
+    }
 
     const prices = {
         btc: 43250.00,
@@ -204,54 +223,260 @@
         usdt: 1.00
     };
 
-    let isAdminUnlocked = false;
-    let clickCount = 0;
-    let clickTimer = null;
+    // Demo users data
+    const users = {
+        'jimmy@cryptovault.com': {
+            password: 'password123',
+            name: 'Jimmy James',
+            avatar: 'JJ',
+            address: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
+            role: 'user',
+            balances: { btc: 0.5234, eth: 2.8901, usdt: 5420.00 },
+            transactions: [
+                { type: 'received', crypto: 'BTC', amount: 0.0234, usd: 1012.05, date: '2025-11-14', from: '1A1z...k3P2' },
+                { type: 'sent', crypto: 'ETH', amount: 0.5, usd: 1140.25, date: '2025-11-13', to: '0x742...9fE3' }
+            ]
+        },
+        'grace@cryptovault.com': {
+            password: 'password123',
+            name: 'Grace Charis',
+            avatar: 'GC',
+            address: '0x742d35Cc6634C0532925a3b844Bc9e7595f9fE3',
+            role: 'user',
+            balances: { btc: 1.2567, eth: 5.4321, usdt: 8950.00 },
+            transactions: [
+                { type: 'received', crypto: 'ETH', amount: 2.5, usd: 5701.25, date: '2025-11-14', from: '0x9F3...c8A1' },
+                { type: 'sent', crypto: 'BTC', amount: 0.05, usd: 2162.50, date: '2025-11-13', to: '1B7x...p4K9' }
+            ]
+        },
+        'admin@cryptovault.com': {
+            password: 'admin123',
+            name: 'Administrator',
+            avatar: 'AD',
+            address: '0xAdmin000000000000000000000000000000000',
+            role: 'admin',
+            balances: { btc: 0, eth: 0, usdt: 0 },
+            transactions: []
+        }
+    };
 
-    // Update display
-    function updateDisplay() {
-        const totalValue = balances.btc * prices.btc + balances.eth * prices.eth + balances.usdt * prices.usdt;
-        
-        document.getElementById('totalValue').textContent = '$' + totalValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        document.getElementById('btcAmount').textContent = balances.btc.toFixed(4) + ' BTC';
-        document.getElementById('btcValue').textContent = '$' + (balances.btc * prices.btc).toLocaleString('en-US', { minimumFractionDigits: 2 });
-        document.getElementById('ethAmount').textContent = balances.eth.toFixed(4) + ' ETH';
-        document.getElementById('ethValue').textContent = '$' + (balances.eth * prices.eth).toLocaleString('en-US', { minimumFractionDigits: 2 });
-        document.getElementById('usdtAmount').textContent = balances.usdt.toFixed(2) + ' USDT';
-        document.getElementById('usdtValue').textContent = '$' + balances.usdt.toLocaleString('en-US', { minimumFractionDigits: 2 });
-        
-        // Update user display
-        document.getElementById('userName').textContent = users[currentUser].name;
-        document.getElementById('userAvatar').textContent = users[currentUser].avatar;
-        
-        // Update admin panel
-        document.getElementById('adminBtc').textContent = balances.btc.toFixed(4) + ' BTC';
-        document.getElementById('adminEth').textContent = balances.eth.toFixed(4) + ' ETH';
-        document.getElementById('adminUsdt').textContent = balances.usdt.toFixed(2) + ' USDT';
+    let currentUser = null;
+    let selectedUserForTopUp = null;
+
+    // Login
+    document.getElementById('loginBtn').addEventListener('click', login);
+    document.getElementById('loginPassword').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') login();
+    });
+
+    function login() {
+        const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+        const password = document.getElementById('loginPassword').value;
+
+        if (users[email] && users[email].password === password) {
+            currentUser = email;
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('app').classList.remove('hidden');
+            
+            if (users[email].role === 'admin') {
+                showAdminPanel();
+            } else {
+                showUserDashboard();
+            }
+        } else {
+            alert('Invalid credentials');
+        }
     }
 
-    // Switch user
-    function switchUser() {
-        // Save current user's balances
-        users[currentUser].balances = {...balances};
-        
-        // Switch to other user
-        currentUser = currentUser === 'jimmy' ? 'grace' : 'jimmy';
-        
-        // Load new user's data
-        balances = {...users[currentUser].balances};
-        transactions = [...users[currentUser].transactions];
+    // Show user dashboard
+    function showUserDashboard() {
+        const user = users[currentUser];
+        document.getElementById('userDashboard').classList.remove('hidden');
+        document.getElementById('adminPanel').classList.add('hidden');
+        document.getElementById('userName').textContent = user.name;
+        document.getElementById('userAvatar').textContent = user.avatar;
+        document.getElementById('userRole').textContent = 'Account Holder';
+        document.getElementById('walletAddress').textContent = user.address;
         
         updateDisplay();
         renderTransactions();
+        
+        // Listen for balance changes if Firebase is configured
+        if (database) {
+            database.ref('users/' + currentUser.replace(/[.@]/g, '_') + '/balances').on('value', (snapshot) => {
+                if (snapshot.val()) {
+                    users[currentUser].balances = snapshot.val();
+                    updateDisplay();
+                }
+            });
+        }
     }
 
-    document.getElementById('switchUserBtn').addEventListener('click', switchUser);
+    // Show admin panel
+    function showAdminPanel() {
+        document.getElementById('userDashboard').classList.add('hidden');
+        document.getElementById('adminPanel').classList.remove('hidden');
+        document.getElementById('userName').textContent = 'Administrator';
+        document.getElementById('userAvatar').textContent = 'AD';
+        document.getElementById('userRole').textContent = 'Admin Access';
+        
+        renderUserList();
+        renderAllUsersOverview();
+    }
+
+    // Render user list for admin
+    function renderUserList() {
+        const container = document.getElementById('userList');
+        container.innerHTML = Object.keys(users)
+            .filter(email => users[email].role !== 'admin')
+            .map(email => {
+                const user = users[email];
+                const total = user.balances.btc * prices.btc + user.balances.eth * prices.eth + user.balances.usdt * prices.usdt;
+                return `
+                    <div class="bg-slate-900 p-4 rounded-lg cursor-pointer hover:bg-slate-700 transition" onclick="selectUserForTopUp('${email}')">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
+                                ${user.avatar}
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-white font-semibold">${user.name}</p>
+                                <p class="text-slate-400 text-xs">${email}</p>
+                            </div>
+                            <p class="text-green-400 font-semibold">$${total.toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+    }
+
+    // Select user for top up
+    window.selectUserForTopUp = function(email) {
+        selectedUserForTopUp = email;
+        const user = users[email];
+        const section = document.getElementById('topUpSection');
+        section.innerHTML = `
+            <div class="bg-purple-900/20 border border-purple-700 rounded-lg p-3 mb-4">
+                <p class="text-purple-300 text-sm">Topping up for: <span class="font-semibold">${user.name}</span></p>
+            </div>
+            <div>
+                <label class="block text-slate-300 mb-2">Select Cryptocurrency</label>
+                <select id="cryptoSelect" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                    <option value="btc">Bitcoin (BTC)</option>
+                    <option value="eth">Ethereum (ETH)</option>
+                    <option value="usdt">Tether (USDT)</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-slate-300 mb-2">Amount to Add</label>
+                <input type="number" id="topUpAmount" placeholder="0.00" step="0.0001" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+            </div>
+            <button onclick="topUpBalance()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
+                Top Up Balance
+            </button>
+            <div class="mt-4 pt-4 border-t border-slate-700">
+                <h4 class="text-white font-semibold mb-2">Current Balances</h4>
+                <div class="space-y-1 text-sm">
+                    <div class="flex justify-between text-slate-300">
+                        <span>Bitcoin:</span>
+                        <span class="font-mono">${user.balances.btc.toFixed(4)} BTC</span>
+                    </div>
+                    <div class="flex justify-between text-slate-300">
+                        <span>Ethereum:</span>
+                        <span class="font-mono">${user.balances.eth.toFixed(4)} ETH</span>
+                    </div>
+                    <div class="flex justify-between text-slate-300">
+                        <span>Tether:</span>
+                        <span class="font-mono">${user.balances.usdt.toFixed(2)} USDT</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    };
+
+    // Top up balance
+    window.topUpBalance = function() {
+        if (!selectedUserForTopUp) return;
+        
+        const amount = parseFloat(document.getElementById('topUpAmount').value);
+        const crypto = document.getElementById('cryptoSelect').value;
+        
+        if (amount && amount > 0) {
+            users[selectedUserForTopUp].balances[crypto] += amount;
+            
+            // Update Firebase if configured
+            if (database) {
+                database.ref('users/' + selectedUserForTopUp.replace(/[.@]/g, '_') + '/balances').set(users[selectedUserForTopUp].balances);
+            }
+            
+            document.getElementById('topUpAmount').value = '';
+            alert(`Successfully added ${amount} ${crypto.toUpperCase()} to ${users[selectedUserForTopUp].name}'s account`);
+            selectUserForTopUp(selectedUserForTopUp);
+            renderAllUsersOverview();
+        }
+    };
+
+    // Render all users overview
+    function renderAllUsersOverview() {
+        const container = document.getElementById('allUsersOverview');
+        container.innerHTML = `
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-slate-700">
+                            <th class="text-left text-slate-400 font-semibold pb-3">User</th>
+                            <th class="text-right text-slate-400 font-semibold pb-3">Bitcoin</th>
+                            <th class="text-right text-slate-400 font-semibold pb-3">Ethereum</th>
+                            <th class="text-right text-slate-400 font-semibold pb-3">USDT</th>
+                            <th class="text-right text-slate-400 font-semibold pb-3">Total Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${Object.keys(users).filter(email => users[email].role !== 'admin').map(email => {
+                            const user = users[email];
+                            const total = user.balances.btc * prices.btc + user.balances.eth * prices.eth + user.balances.usdt * prices.usdt;
+                            return `
+                                <tr class="border-b border-slate-700/50">
+                                    <td class="py-3">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold">
+                                                ${user.avatar}
+                                            </div>
+                                            <span class="text-white font-semibold">${user.name}</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-right text-orange-400 font-mono">${user.balances.btc.toFixed(4)}</td>
+                                    <td class="text-right text-blue-400 font-mono">${user.balances.eth.toFixed(4)}</td>
+                                    <td class="text-right text-green-400 font-mono">${user.balances.usdt.toFixed(2)}</td>
+                                    <td class="text-right text-white font-semibold">$${total.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+
+    // Update display for user
+    function updateDisplay() {
+        const user = users[currentUser];
+        const totalValue = user.balances.btc * prices.btc + user.balances.eth * prices.eth + user.balances.usdt * prices.usdt;
+        
+        document.getElementById('totalValue').textContent = '$' + totalValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        document.getElementById('btcAmount').textContent = user.balances.btc.toFixed(4) + ' BTC';
+        document.getElementById('btcValue').textContent = '$' + (user.balances.btc * prices.btc).toLocaleString('en-US', { minimumFractionDigits: 2 });
+        document.getElementById('ethAmount').textContent = user.balances.eth.toFixed(4) + ' ETH';
+        document.getElementById('ethValue').textContent = '$' + (user.balances.eth * prices.eth).toLocaleString('en-US', { minimumFractionDigits: 2 });
+        document.getElementById('usdtAmount').textContent = user.balances.usdt.toFixed(2) + ' USDT';
+        document.getElementById('usdtValue').textContent = '$' + user.balances.usdt.toLocaleString('en-US', { minimumFractionDigits: 2 });
+    }
 
     // Render transactions
     function renderTransactions() {
+        const user = users[currentUser];
         const container = document.getElementById('transactions');
-        container.innerHTML = transactions.map(tx => `
+        container.innerHTML = user.transactions.map(tx => `
             <div class="flex items-center justify-between p-4 bg-slate-900 rounded-lg">
                 <div class="flex items-center gap-4">
                     <div class="p-2 rounded-full ${tx.type === 'received' ? 'bg-green-500/20' : 'bg-red-500/20'}">
@@ -277,68 +502,22 @@
         `).join('');
     }
 
-    // Triple click to access admin
-    document.getElementById('logo').addEventListener('click', function() {
-        clickCount++;
-        
-        if (clickTimer) clearTimeout(clickTimer);
-        
-        if (clickCount === 3) {
-            if (!isAdminUnlocked) {
-                const password = prompt('Enter admin password:');
-                if (password === 'admin123') {
-                    isAdminUnlocked = true;
-                    document.getElementById('adminBtn').classList.remove('hidden');
-                    toggleAdmin();
-                } else if (password) {
-                    alert('Incorrect password');
-                }
-            } else {
-                toggleAdmin();
-            }
-            clickCount = 0;
-        } else {
-            clickTimer = setTimeout(() => {
-                clickCount = 0;
-            }, 500);
-        }
+    // Copy wallet address
+    window.copyAddress = function() {
+        const address = document.getElementById('walletAddress').textContent;
+        navigator.clipboard.writeText(address);
+        alert('Address copied to clipboard!');
+    };
+
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        currentUser = null;
+        selectedUserForTopUp = null;
+        document.getElementById('app').classList.add('hidden');
+        document.getElementById('loginScreen').classList.remove('hidden');
+        document.getElementById('loginEmail').value = '';
+        document.getElementById('loginPassword').value = '';
     });
-
-    // Toggle admin panel
-    function toggleAdmin() {
-        const dashboard = document.getElementById('dashboard');
-        const adminPanel = document.getElementById('adminPanel');
-        const btnText = document.getElementById('adminBtnText');
-        
-        if (dashboard.classList.contains('hidden')) {
-            dashboard.classList.remove('hidden');
-            adminPanel.classList.add('hidden');
-            btnText.textContent = 'Admin Panel';
-        } else {
-            dashboard.classList.add('hidden');
-            adminPanel.classList.remove('hidden');
-            btnText.textContent = 'Back to Wallet';
-        }
-    }
-
-    document.getElementById('adminBtn').addEventListener('click', toggleAdmin);
-
-    // Top up functionality
-    document.getElementById('topUpBtn').addEventListener('click', function() {
-        const amount = parseFloat(document.getElementById('topUpAmount').value);
-        const crypto = document.getElementById('cryptoSelect').value;
-        
-        if (amount && amount > 0) {
-            balances[crypto] += amount;
-            updateDisplay();
-            document.getElementById('topUpAmount').value = '';
-            alert(`Successfully added ${amount} ${crypto.toUpperCase()}`);
-        }
-    });
-
-    // Initialize
-    updateDisplay();
-    renderTransactions();
 </script>
 </body>
 </html>
