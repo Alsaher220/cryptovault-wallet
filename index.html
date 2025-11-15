@@ -42,20 +42,83 @@
             <button id="loginBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
                 Sign In
             </button>
-            <div class="pt-4 border-t border-slate-700">
-                <p class="text-slate-400 text-sm text-center mb-3">Demo Accounts:</p>
-                <div class="space-y-2 text-xs">
-                    <div class="bg-slate-900 p-3 rounded-lg">
-                        <p class="text-slate-300"><span class="font-semibold text-purple-400">Jimmy James:</span> jimmy@cryptovault.com / password123</p>
-                    </div>
-                    <div class="bg-slate-900 p-3 rounded-lg">
-                        <p class="text-slate-300"><span class="font-semibold text-pink-400">Grace Charis:</span> grace@cryptovault.com / password123</p>
-                    </div>
-                    <div class="bg-slate-900 p-3 rounded-lg border border-yellow-700/50">
-                        <p class="text-slate-300"><span class="font-semibold text-yellow-400">Admin:</span> admin@cryptovault.com / admin123</p>
-                    </div>
-                </div>
+        </div>
+    </div>
+</div>
+
+<!-- Send Crypto Modal -->
+<div id="sendModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
+    <div class="bg-slate-800 rounded-2xl p-6 w-full max-w-md border border-slate-700">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-white">Send Crypto</h3>
+            <button onclick="closeSendModal()" class="text-slate-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Recipient Email</label>
+                <input type="email" id="recipientEmail" placeholder="user@cryptovault.com" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
             </div>
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Select Cryptocurrency</label>
+                <select id="sendCryptoType" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                    <option value="btc">Bitcoin (BTC)</option>
+                    <option value="eth">Ethereum (ETH)</option>
+                    <option value="usdt">Tether (USDT)</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Amount</label>
+                <input type="number" id="sendAmount" placeholder="0.00" step="0.0001" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+            </div>
+            <button onclick="sendCrypto()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
+                Send Now
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Withdraw Modal -->
+<div id="withdrawModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
+    <div class="bg-slate-800 rounded-2xl p-6 w-full max-w-md border border-slate-700">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-white">Withdraw Funds</h3>
+            <button onclick="closeWithdrawModal()" class="text-slate-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Select Cryptocurrency</label>
+                <select id="withdrawCryptoType" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                    <option value="btc">Bitcoin (BTC)</option>
+                    <option value="eth">Ethereum (ETH)</option>
+                    <option value="usdt">Tether (USDT)</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">External Wallet Address</label>
+                <input type="text" id="withdrawAddress" placeholder="Enter wallet address" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+            </div>
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Amount</label>
+                <input type="number" id="withdrawAmount" placeholder="0.00" step="0.0001" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+            </div>
+            <div class="bg-yellow-900/20 border border-yellow-700 rounded-lg p-3">
+                <p class="text-yellow-300 text-xs">⚠️ Network Fee: 0.0001 BTC / 0.001 ETH / 1 USDT</p>
+            </div>
+            <button onclick="withdrawCrypto()" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition">
+                Withdraw Now
+            </button>
         </div>
     </div>
 </div>
@@ -163,6 +226,22 @@
                     </div>
                     <p class="text-slate-400 text-sm" id="usdtValue">$0.00</p>
                 </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <button onclick="openSendModal()" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 rounded-xl transition flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                    Send Crypto
+                </button>
+                <button onclick="openWithdrawModal()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-xl transition flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                    Withdraw
+                </button>
             </div>
 
             <!-- Recent Transactions -->
@@ -507,6 +586,143 @@
         const address = document.getElementById('walletAddress').textContent;
         navigator.clipboard.writeText(address);
         alert('Address copied to clipboard!');
+    };
+
+    // Open/Close Send Modal
+    window.openSendModal = function() {
+        document.getElementById('sendModal').classList.remove('hidden');
+    };
+
+    window.closeSendModal = function() {
+        document.getElementById('sendModal').classList.add('hidden');
+        document.getElementById('recipientEmail').value = '';
+        document.getElementById('sendAmount').value = '';
+    };
+
+    // Send crypto to another user
+    window.sendCrypto = function() {
+        const recipientEmail = document.getElementById('recipientEmail').value.trim().toLowerCase();
+        const crypto = document.getElementById('sendCryptoType').value;
+        const amount = parseFloat(document.getElementById('sendAmount').value);
+
+        if (!recipientEmail || !amount || amount <= 0) {
+            alert('Please fill all fields correctly');
+            return;
+        }
+
+        if (!users[recipientEmail]) {
+            alert('Recipient not found in CryptoVault');
+            return;
+        }
+
+        if (recipientEmail === currentUser) {
+            alert('You cannot send to yourself');
+            return;
+        }
+
+        if (users[currentUser].balances[crypto] < amount) {
+            alert('Insufficient balance');
+            return;
+        }
+
+        // Deduct from sender
+        users[currentUser].balances[crypto] -= amount;
+        
+        // Add to recipient
+        users[recipientEmail].balances[crypto] += amount;
+
+        // Add transaction to sender
+        const tx = {
+            type: 'sent',
+            crypto: crypto.toUpperCase(),
+            amount: amount,
+            usd: amount * prices[crypto],
+            date: new Date().toISOString().split('T')[0],
+            to: users[recipientEmail].address.substring(0, 6) + '...' + users[recipientEmail].address.slice(-4)
+        };
+        users[currentUser].transactions.unshift(tx);
+
+        // Add transaction to recipient
+        const rxTx = {
+            type: 'received',
+            crypto: crypto.toUpperCase(),
+            amount: amount,
+            usd: amount * prices[crypto],
+            date: new Date().toISOString().split('T')[0],
+            from: users[currentUser].address.substring(0, 6) + '...' + users[currentUser].address.slice(-4)
+        };
+        users[recipientEmail].transactions.unshift(rxTx);
+
+        // Update Firebase if configured
+        if (database) {
+            database.ref('users/' + currentUser.replace(/[.@]/g, '_') + '/balances').set(users[currentUser].balances);
+            database.ref('users/' + recipientEmail.replace(/[.@]/g, '_') + '/balances').set(users[recipientEmail].balances);
+        }
+
+        updateDisplay();
+        renderTransactions();
+        closeSendModal();
+        alert(`Successfully sent ${amount} ${crypto.toUpperCase()} to ${users[recipientEmail].name}`);
+    };
+
+    // Open/Close Withdraw Modal
+    window.openWithdrawModal = function() {
+        document.getElementById('withdrawModal').classList.remove('hidden');
+    };
+
+    window.closeWithdrawModal = function() {
+        document.getElementById('withdrawModal').classList.add('hidden');
+        document.getElementById('withdrawAddress').value = '';
+        document.getElementById('withdrawAmount').value = '';
+    };
+
+    // Withdraw crypto
+    window.withdrawCrypto = function() {
+        const address = document.getElementById('withdrawAddress').value.trim();
+        const crypto = document.getElementById('withdrawCryptoType').value;
+        const amount = parseFloat(document.getElementById('withdrawAmount').value);
+
+        const networkFees = {
+            btc: 0.0001,
+            eth: 0.001,
+            usdt: 1
+        };
+
+        if (!address || !amount || amount <= 0) {
+            alert('Please fill all fields correctly');
+            return;
+        }
+
+        const totalAmount = amount + networkFees[crypto];
+
+        if (users[currentUser].balances[crypto] < totalAmount) {
+            alert(`Insufficient balance. You need ${totalAmount} ${crypto.toUpperCase()} (including network fee)`);
+            return;
+        }
+
+        // Deduct amount + fee
+        users[currentUser].balances[crypto] -= totalAmount;
+
+        // Add transaction
+        const tx = {
+            type: 'sent',
+            crypto: crypto.toUpperCase(),
+            amount: amount,
+            usd: amount * prices[crypto],
+            date: new Date().toISOString().split('T')[0],
+            to: address.substring(0, 6) + '...' + address.slice(-4)
+        };
+        users[currentUser].transactions.unshift(tx);
+
+        // Update Firebase if configured
+        if (database) {
+            database.ref('users/' + currentUser.replace(/[.@]/g, '_') + '/balances').set(users[currentUser].balances);
+        }
+
+        updateDisplay();
+        renderTransactions();
+        closeWithdrawModal();
+        alert(`Successfully withdrew ${amount} ${crypto.toUpperCase()} to external wallet`);
     };
 
     // Logout
