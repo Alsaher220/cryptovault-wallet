@@ -42,6 +42,106 @@
             <button id="loginBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
                 Sign In
             </button>
+            <div class="text-center">
+                <button onclick="showRegisterForm()" class="text-purple-400 hover:text-purple-300 text-sm">
+                    Don't have an account? Sign up
+                </button>
+            </div>
+        </div>
+        
+        <!-- About & Reviews Section -->
+        <div class="mt-8 pt-6 border-t border-slate-700">
+            <div class="mb-6">
+                <h3 class="text-white font-semibold mb-2 text-sm">About CryptoVault</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    The most secure and user-friendly cryptocurrency wallet. Send, receive, and manage your digital assets with confidence. Trusted by thousands of users worldwide.
+                </p>
+            </div>
+            
+            <div>
+                <h3 class="text-white font-semibold mb-3 text-sm">What Our Users Say</h3>
+                <div class="space-y-3">
+                    <div class="bg-slate-900 p-3 rounded-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-xs font-bold">
+                                MJ
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-semibold">Michael Johnson</p>
+                                <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-xs">"Best crypto wallet I've used. Fast, secure, and easy to navigate!"</p>
+                    </div>
+                    
+                    <div class="bg-slate-900 p-3 rounded-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold">
+                                SR
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-semibold">Sarah Rodriguez</p>
+                                <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-xs">"Love the instant transfers! Sent BTC to my friend in seconds."</p>
+                    </div>
+                    
+                    <div class="bg-slate-900 p-3 rounded-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold">
+                                DK
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-semibold">David Kim</p>
+                                <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-xs">"Outstanding security features. My crypto is safe and accessible 24/7."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Registration Screen -->
+<div id="registerScreen" class="hidden flex items-center justify-center min-h-screen p-6">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 w-full max-w-md">
+        <div class="flex justify-center mb-6">
+            <div class="bg-purple-600 p-4 rounded-xl">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                </svg>
+            </div>
+        </div>
+        <h1 class="text-3xl font-bold text-white text-center mb-2">Create Account</h1>
+        <p class="text-slate-400 text-center mb-8">Join CryptoVault today</p>
+        
+        <div class="space-y-4">
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Full Name</label>
+                <input type="text" id="registerName" placeholder="John Doe" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+            </div>
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Email Address</label>
+                <input type="email" id="registerEmail" placeholder="john@example.com" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+            </div>
+            <div>
+                <label class="block text-slate-300 mb-2 text-sm">Password</label>
+                <input type="password" id="registerPassword" placeholder="Create a strong password" 
+                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+            </div>
+            <button id="registerBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
+                Create Account
+            </button>
+            <div class="text-center">
+                <button onclick="showLoginForm()" class="text-purple-400 hover:text-purple-300 text-sm">
+                    Already have an account? Sign in
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -322,10 +422,11 @@
             avatar: 'GC',
             address: '0x742d35Cc6634C0532925a3b844Bc9e7595f9fE3',
             role: 'user',
-            balances: { btc: 1.2567, eth: 5.4321, usdt: 8950.00 },
+            balances: { btc: 5.8920, eth: 120.4567, usdt: 847530.00 },
             transactions: [
-                { type: 'received', crypto: 'ETH', amount: 2.5, usd: 5701.25, date: '2025-11-14', from: '0x9F3...c8A1' },
-                { type: 'sent', crypto: 'BTC', amount: 0.05, usd: 2162.50, date: '2025-11-13', to: '1B7x...p4K9' }
+                { type: 'received', crypto: 'BTC', amount: 2.5, usd: 108125.00, date: '2025-11-14', from: '0x9F3...c8A1' },
+                { type: 'received', crypto: 'USDT', amount: 500000, usd: 500000.00, date: '2025-11-13', from: '0xD8F...2b3C' },
+                { type: 'received', crypto: 'ETH', amount: 100, usd: 228050.00, date: '2025-11-12', from: '0x1E4...7fB2' }
             ]
         },
         'admin@cryptovault.com': {
@@ -341,6 +442,73 @@
 
     let currentUser = null;
     let selectedUserForTopUp = null;
+
+    // Generate random wallet address
+    function generateWalletAddress(crypto) {
+        if (crypto === 'btc') {
+            return '1' + Math.random().toString(36).substring(2, 15).toUpperCase() + Math.random().toString(36).substring(2, 15).toUpperCase();
+        } else {
+            return '0x' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
+    }
+
+    // Show/Hide forms
+    window.showRegisterForm = function() {
+        document.getElementById('loginScreen').classList.add('hidden');
+        document.getElementById('registerScreen').classList.remove('hidden');
+    };
+
+    window.showLoginForm = function() {
+        document.getElementById('registerScreen').classList.add('hidden');
+        document.getElementById('loginScreen').classList.remove('hidden');
+    };
+
+    // Register new user
+    document.getElementById('registerBtn').addEventListener('click', register);
+
+    function register() {
+        const name = document.getElementById('registerName').value.trim();
+        const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+        const password = document.getElementById('registerPassword').value;
+
+        if (!name || !email || !password) {
+            alert('Please fill all fields');
+            return;
+        }
+
+        if (users[email]) {
+            alert('Email already registered');
+            return;
+        }
+
+        if (password.length < 6) {
+            alert('Password must be at least 6 characters');
+            return;
+        }
+
+        // Create new user
+        const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+        users[email] = {
+            password: password,
+            name: name,
+            avatar: initials,
+            address: generateWalletAddress('eth'),
+            role: 'user',
+            balances: { btc: 0, eth: 0, usdt: 0 },
+            transactions: []
+        };
+
+        // Save to Firebase if configured
+        if (database) {
+            database.ref('users/' + email.replace(/[.@]/g, '_')).set(users[email]);
+        }
+
+        alert('Account created successfully! Please login.');
+        showLoginForm();
+        document.getElementById('registerName').value = '';
+        document.getElementById('registerEmail').value = '';
+        document.getElementById('registerPassword').value = '';
+    }
 
     // Login
     document.getElementById('loginBtn').addEventListener('click', login);
