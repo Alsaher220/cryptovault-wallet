@@ -705,6 +705,38 @@
         let currentUser = null;
         let selectedUserForTopUp = null;
 
+        // Load all users from Firebase on startup
+        function loadUsersFromFirebase() {
+            if (database) {
+                database.ref('users').once('value', (snapshot) => {
+                    const firebaseUsers = snapshot.val();
+                    if (firebaseUsers) {
+                        for (let userKey in firebaseUsers) {
+                            const email = userKey.replace(/_/g, '.').replace(/\.com/, '@com').replace(/@/, '.');
+                            // Fix email format back
+                            const properEmail = email.split('.').slice(0, -1).join('.') + '@' + email.split('.').pop();
+                            
+                            // Only add if not already in users object
+                            if (!users[firebaseUsers[userKey].email]) {
+                                users[firebaseUsers[userKey].email] = {
+                                    password: firebaseUsers[userKey].password,
+                                    name: firebaseUsers[userKey].name,
+                                    avatar: firebaseUsers[userKey].avatar,
+                                    address: firebaseUsers[userKey].address,
+                                    role: firebaseUsers[userKey].role || 'user',
+                                    balances: firebaseUsers[userKey].balances || { btc: 0, eth: 0, usdt: 0 },
+                                    transactions: firebaseUsers[userKey].transactions || []
+                                };
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Call this on page load
+        loadUsersFromFirebase();
+
         // Session Management - Keep user logged in
         function saveSession(email) {
             localStorage.setItem('cryptovault_session', email);
@@ -720,18 +752,24 @@
 
         // Check for existing session on page load
         window.addEventListener('DOMContentLoaded', function() {
-            const savedSession = loadSession();
-            if (savedSession && users[savedSession]) {
-                currentUser = savedSession;
-                document.getElementById('loginScreen').classList.add('hidden');
-                document.getElementById('app').classList.remove('hidden');
-                
-                if (users[savedSession].role === 'admin') {
-                    showAdminPanel();
-                } else {
-                    showUserDashboard();
+            // Load users from Firebase first
+            loadUsersFromFirebase();
+            
+            // Then check session after a short delay to ensure users are loaded
+            setTimeout(() => {
+                const savedSession = loadSession();
+                if (savedSession && users[savedSession]) {
+                    currentUser = savedSession;
+                    document.getElementById('loginScreen').classList.add('hidden');
+                    document.getElementById('app').classList.remove('hidden');
+                    
+                    if (users[savedSession].role === 'admin') {
+                        showAdminPanel();
+                    } else {
+                        showUserDashboard();
+                    }
                 }
-            }
+            }, 500);
         });
 
         // Generate random wallet address
@@ -778,7 +816,7 @@
             }
 
             const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
-            users[email] = {
+            const newUser = {
                 password: password,
                 name: name,
                 avatar: initials,
@@ -787,6 +825,9 @@
                 balances: { btc: 0, eth: 0, usdt: 0 },
                 transactions: []
             };
+            
+            // Add to local users object immediately
+            users[email] = newUser;
 
             if (database) {
                 const userKey = email.replace(/[.@]/g, '_');
@@ -795,7 +836,7 @@
                     email: email,
                     password: password,
                     avatar: initials,
-                    address: users[email].address,
+                    address: newUser.address,
                     role: 'user',
                     balances: { btc: 0, eth: 0, usdt: 0 },
                     transactions: [],
@@ -865,14 +906,19 @@
 
         // Show admin panel
         function showAdminPanel() {
-            document.getElementById('userDashboard').classList.add('hidden');
-            document.getElementById('adminPanel').classList.remove('hidden');
-            document.getElementById('userName').textContent = 'Administrator';
-            document.getElementById('userAvatar').textContent = 'AD';
-            document.getElementById('userRole').textContent = 'Admin Access';
+            // Reload users from Firebase before showing admin panel
+            loadUsersFromFirebase();
             
-            renderUserList();
-            renderAllUsersOverview();
+            setTimeout(() => {
+                document.getElementById('userDashboard').classList.add('hidden');
+                document.getElementById('adminPanel').classList.remove('hidden');
+                document.getElementById('userName').textContent = 'Administrator';
+                document.getElementById('userAvatar').textContent = 'AD';
+                document.getElementById('userRole').textContent = 'Admin Access';
+                
+                renderUserList();
+                renderAllUsersOverview();
+            }, 300);
         }
 
         // Render user list for admin
@@ -898,7 +944,6 @@
                         </div>
                     `;
                 }).join('');
-        }
 
 // Select user for top up/deduct
         window.selectUserForTopUp = function(email) {
