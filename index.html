@@ -14,1122 +14,1301 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
-
-<!-- Login Screen -->
-<div id="loginScreen" class="flex items-center justify-center min-h-screen p-6">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 w-full max-w-md">
-        <div class="flex justify-center mb-6">
-            <div class="bg-purple-600 p-4 rounded-xl">
-                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                </svg>
-            </div>
-        </div>
-        <h1 class="text-3xl font-bold text-white text-center mb-2">CryptoVault</h1>
-        <p class="text-slate-400 text-center mb-8">Sign in to your wallet</p>
-        
-        <div class="space-y-4">
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Email Address</label>
-                <input type="email" id="loginEmail" placeholder="Enter your email" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
-            </div>
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Password</label>
-                <input type="password" id="loginPassword" placeholder="Enter your password" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
-            </div>
-            <button id="loginBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
-                Sign In
-            </button>
-            <div class="text-center">
-                <button onclick="showRegisterForm()" class="text-purple-400 hover:text-purple-300 text-sm">
-                    Don't have an account? Sign up
-                </button>
-            </div>
-        </div>
-        
-        <!-- About & Reviews Section -->
-        <div class="mt-8 pt-6 border-t border-slate-700">
-            <div class="mb-6">
-                <h3 class="text-white font-semibold mb-2 text-sm">About CryptoVault</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">
-                    The most secure and user-friendly cryptocurrency wallet. Send, receive, and manage your digital assets with confidence. Trusted by thousands of users worldwide.
-                </p>
-            </div>
-            
-            <div>
-                <h3 class="text-white font-semibold mb-3 text-sm">What Our Users Say</h3>
-                <div class="space-y-3">
-                    <div class="bg-slate-900 p-3 rounded-lg">
-                        <div class="flex items-center gap-2 mb-2">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-xs font-bold">
-                                MJ
-                            </div>
-                            <div>
-                                <p class="text-white text-xs font-semibold">Michael Johnson</p>
-                                <div class="flex text-yellow-400 text-xs">★★★★★</div>
-                            </div>
-                        </div>
-                        <p class="text-slate-400 text-xs">"Best crypto wallet I've used. Fast, secure, and easy to navigate!"</p>
-                    </div>
-                    
-                    <div class="bg-slate-900 p-3 rounded-lg">
-                        <div class="flex items-center gap-2 mb-2">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold">
-                                SR
-                            </div>
-                            <div>
-                                <p class="text-white text-xs font-semibold">Sarah Rodriguez</p>
-                                <div class="flex text-yellow-400 text-xs">★★★★★</div>
-                            </div>
-                        </div>
-                        <p class="text-slate-400 text-xs">"Love the instant transfers! Sent BTC to my friend in seconds."</p>
-                    </div>
-                    
-                    <div class="bg-slate-900 p-3 rounded-lg">
-                        <div class="flex items-center gap-2 mb-2">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold">
-                                DK
-                            </div>
-                            <div>
-                                <p class="text-white text-xs font-semibold">David Kim</p>
-                                <div class="flex text-yellow-400 text-xs">★★★★★</div>
-                            </div>
-                        </div>
-                        <p class="text-slate-400 text-xs">"Outstanding security features. My crypto is safe and accessible 24/7."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer class="bg-slate-900 border-t border-slate-800 mt-12">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-        <div class="grid md:grid-cols-4 gap-8 mb-8">
-            <!-- Company Info -->
-            <div class="md:col-span-2">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="bg-purple-600 p-2 rounded-lg">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-white font-bold text-xl">CryptoVault</h3>
-                </div>
-                <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                    Your trusted cryptocurrency wallet platform. Secure, fast, and reliable digital asset management for the modern investor.
-                </p>
-                <div class="space-y-2 text-sm">
-                    <div class="flex items-start gap-2">
-                        <svg class="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                        <div>
-                            <p class="text-slate-300 font-semibold">Corporate Address:</p>
-                            <p class="text-slate-400">125 Blockchain Avenue, Suite 400<br>San Francisco, CA 94105, United States</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        <div>
-                            <p class="text-slate-300 font-semibold">Email: <span class="text-purple-400">support@cryptovault.com</span></p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                        </svg>
-                        <div>
-                            <p class="text-slate-300 font-semibold">Phone: <span class="text-purple-400">+1 (415) 555-0100</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quick Links -->
-            <div>
-                <h4 class="text-white font-semibold mb-4">Company</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">About Us</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Careers</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Press Kit</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Blog</a></li>
-                </ul>
-            </div>
-
-            <!-- Legal -->
-            <div>
-                <h4 class="text-white font-semibold mb-4">Legal</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Privacy Policy</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Terms of Service</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Cookie Policy</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Compliance</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Licenses & Certifications -->
-        <div class="border-t border-slate-800 pt-8 mb-8">
-            <h4 class="text-white font-semibold mb-4 text-sm">Licenses & Regulations</h4>
-            <div class="grid md:grid-cols-3 gap-4 text-xs">
-                <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
-                    <div class="flex items-center gap-2 mb-2">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                        <p class="text-white font-semibold">FinCEN Registered</p>
-                    </div>
-                    <p class="text-slate-400">MSB Registration: 31000198765432</p>
-                </div>
-                <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
-                    <div class="flex items-center gap-2 mb-2">
-                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                        <p class="text-white font-semibold">SOC 2 Type II Certified</p>
-                    </div>
-                    <p class="text-slate-400">Security Audit: 2025-Q1</p>
-                </div>
-                <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
-                    <div class="flex items-center gap-2 mb-2">
-                        <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                        <p class="text-white font-semibold">ISO 27001 Compliant</p>
-                    </div>
-                    <p class="text-slate-400">Information Security Management</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bottom Bar -->
-        <div class="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-slate-400 text-sm">
-                © 2025 CryptoVault Technologies Inc. All rights reserved.
-            </p>
-            <div class="flex gap-4">
-                <a href="#" class="text-slate-400 hover:text-white transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                    </svg>
-                </a>
-                <a href="#" class="text-slate-400 hover:text-white transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a>
-                <a href="#" class="text-slate-400 hover:text-white transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- Registration Screen -->
-<div id="registerScreen" class="hidden flex items-center justify-center min-h-screen p-6">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 w-full max-w-md">
-        <div class="flex justify-center mb-6">
-            <div class="bg-purple-600 p-4 rounded-xl">
-                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
-                </svg>
-            </div>
-        </div>
-        <h1 class="text-3xl font-bold text-white text-center mb-2">Create Account</h1>
-        <p class="text-slate-400 text-center mb-8">Join CryptoVault today</p>
-        
-        <div class="space-y-4">
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Full Name</label>
-                <input type="text" id="registerName" placeholder="John Doe" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
-            </div>
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Email Address</label>
-                <input type="email" id="registerEmail" placeholder="john@example.com" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
-            </div>
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Password</label>
-                <input type="password" id="registerPassword" placeholder="Create a strong password" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
-            </div>
-            <button id="registerBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
-                Create Account
-            </button>
-            <div class="text-center">
-                <button onclick="showLoginForm()" class="text-purple-400 hover:text-purple-300 text-sm">
-                    Already have an account? Sign in
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Send Crypto Modal -->
-<div id="sendModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
-    <div class="bg-slate-800 rounded-2xl p-6 w-full max-w-md border border-slate-700">
-        <div class="flex justify-between items-center mb-6">
-            <h3 class="text-2xl font-bold text-white">Send Crypto</h3>
-            <button onclick="closeSendModal()" class="text-slate-400 hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-        </div>
-        <div class="space-y-4">
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Recipient Email</label>
-                <input type="email" id="recipientEmail" placeholder="user@cryptovault.com" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-            </div>
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Select Cryptocurrency</label>
-                <select id="sendCryptoType" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-                    <option value="btc">Bitcoin (BTC)</option>
-                    <option value="eth">Ethereum (ETH)</option>
-                    <option value="usdt">Tether (USDT)</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Amount</label>
-                <input type="number" id="sendAmount" placeholder="0.00" step="0.0001" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-            </div>
-            <button onclick="sendCrypto()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
-                Send Now
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- Withdraw Modal -->
-<div id="withdrawModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
-    <div class="bg-slate-800 rounded-2xl p-6 w-full max-w-md border border-slate-700">
-        <div class="flex justify-between items-center mb-6">
-            <h3 class="text-2xl font-bold text-white">Withdraw Funds</h3>
-            <button onclick="closeWithdrawModal()" class="text-slate-400 hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-        </div>
-        <div class="space-y-4">
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Select Cryptocurrency</label>
-                <select id="withdrawCryptoType" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-                    <option value="btc">Bitcoin (BTC)</option>
-                    <option value="eth">Ethereum (ETH)</option>
-                    <option value="usdt">Tether (USDT)</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">External Wallet Address</label>
-                <input type="text" id="withdrawAddress" placeholder="Enter wallet address" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-            </div>
-            <div>
-                <label class="block text-slate-300 mb-2 text-sm">Amount</label>
-                <input type="number" id="withdrawAmount" placeholder="0.00" step="0.0001" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-            </div>
-            <div class="bg-yellow-900/20 border border-yellow-700 rounded-lg p-3">
-                <p class="text-yellow-300 text-xs">⚠️ Network Fee: 0.0001 BTC / 0.001 ETH / 1 USDT</p>
-            </div>
-            <button onclick="withdrawCrypto()" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition">
-                Withdraw Now
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- Main App -->
-<div id="app" class="hidden p-6">
-    <div class="max-w-7xl mx-auto">
-        <!-- Header -->
-        <div class="flex justify-between items-center mb-8">
-            <div class="flex items-center gap-3">
-                <div class="bg-purple-600 p-3 rounded-xl">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    
+    <!-- Login Screen -->
+    <div id="loginScreen" class="flex items-center justify-center min-h-screen p-6">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 w-full max-w-md">
+            <div class="flex justify-center mb-6">
+                <div class="bg-purple-600 p-4 rounded-xl">
+                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
                     </svg>
                 </div>
+            </div>
+            <h1 class="text-3xl font-bold text-white text-center mb-2">CryptoVault</h1>
+            <p class="text-slate-400 text-center mb-8">Sign in to your wallet</p>
+            
+            <div class="space-y-4">
                 <div>
-                    <h1 class="text-3xl font-bold text-white">CryptoVault</h1>
-                    <p class="text-purple-300 text-sm">Your Digital Wallet</p>
+                    <label class="block text-slate-300 mb-2 text-sm">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
                 </div>
-            </div>
-            <div class="flex items-center gap-4">
-                <div class="flex items-center gap-3 bg-slate-800 px-4 py-2 rounded-lg border border-slate-700">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold" id="userAvatar">
-                    </div>
-                    <div>
-                        <p class="text-white font-semibold text-sm" id="userName"></p>
-                        <p class="text-slate-400 text-xs" id="userRole">Account Holder</p>
-                    </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
                 </div>
-                <button id="logoutBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition">
-                    Logout
+                <button id="loginBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
+                    Sign In
                 </button>
-            </div>
-        </div>
-
-        <!-- User Dashboard -->
-        <div id="userDashboard">
-            <!-- Wallet Address -->
-            <div class="bg-slate-800 rounded-xl p-4 mb-6 border border-slate-700">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
-                        </svg>
-                        <div>
-                            <p class="text-slate-400 text-xs">Wallet Address</p>
-                            <p class="text-white font-mono text-sm" id="walletAddress"></p>
-                        </div>
-                    </div>
-                    <button onclick="copyAddress()" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-xs transition">
-                        Copy
+                <div class="text-center">
+                    <button onclick="showRegisterForm()" class="text-purple-400 hover:text-purple-300 text-sm">
+                        Don't have an account? Sign up
                     </button>
                 </div>
             </div>
 
-            <!-- Total Balance Card -->
-            <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-6 shadow-2xl">
-                <p class="text-purple-200 text-sm mb-2">Total Portfolio Value</p>
-                <h2 class="text-5xl font-bold text-white mb-4" id="totalValue">$0.00</h2>
-                <div class="flex items-center gap-2 text-green-300">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                    </svg>
-                    <span class="font-semibold">+12.5% this month</span>
+<!-- About & Reviews Section -->
+            <div class="mt-8 pt-6 border-t border-slate-700">
+                <div class="mb-6">
+                    <h3 class="text-white font-semibold mb-2 text-sm">About CryptoVault</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        The most secure and user-friendly cryptocurrency wallet. Send, receive, and manage your digital assets with confidence. Trusted by thousands of users worldwide.
+                    </p>
                 </div>
-            </div>
-
-            <!-- Holdings Grid -->
-            <div class="grid md:grid-cols-3 gap-6 mb-6">
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <p class="text-slate-400 text-sm">Bitcoin</p>
-                            <p class="text-2xl font-bold text-white" id="btcAmount">0.0000 BTC</p>
-                        </div>
-                        <div class="bg-orange-500/20 p-2 rounded-lg">
-                            <span class="text-orange-500 font-bold text-xl">₿</span>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 text-sm" id="btcValue">$0.00</p>
-                </div>
-
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <p class="text-slate-400 text-sm">Ethereum</p>
-                            <p class="text-2xl font-bold text-white" id="ethAmount">0.0000 ETH</p>
-                        </div>
-                        <div class="bg-blue-500/20 p-2 rounded-lg">
-                            <span class="text-blue-500 font-bold text-xl">Ξ</span>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 text-sm" id="ethValue">$0.00</p>
-                </div>
-
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <p class="text-slate-400 text-sm">Tether USD</p>
-                            <p class="text-2xl font-bold text-white" id="usdtAmount">0.00 USDT</p>
-                        </div>
-                        <div class="bg-green-500/20 p-2 rounded-lg">
-                            <span class="text-green-500 font-bold text-xl">₮</span>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 text-sm" id="usdtValue">$0.00</p>
-                </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="grid md:grid-cols-2 gap-4 mb-6">
-                <button onclick="openSendModal()" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 rounded-xl transition flex items-center justify-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                    </svg>
-                    Send Crypto
-                </button>
-                <button onclick="openWithdrawModal()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-xl transition flex items-center justify-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                    </svg>
-                    Withdraw
-                </button>
-            </div>
-
-            <!-- Advertisement Banner 1 -->
-            <div class="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-6 mb-6 border border-blue-500 cursor-pointer hover:shadow-2xl transition">
-                <div class="flex items-center justify-between">
-                    <div class="flex-1">
-                        <p class="text-blue-200 text-xs font-semibold mb-1">SPONSORED</p>
-                        <h4 class="text-white font-bold text-lg mb-2">🚀 Trade Crypto with Zero Fees</h4>
-                        <p class="text-blue-100 text-sm mb-3">Join CryptoExchange Pro and get $50 bonus on your first trade. Limited time offer!</p>
-                        <button class="bg-white text-blue-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-50 transition">
-                            Claim Bonus →
-                        </button>
-                    </div>
-                    <div class="hidden md:block ml-6">
-                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recent Transactions -->
-            <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 mb-6">
-                <h3 class="text-xl font-bold text-white mb-4">Recent Transactions</h3>
-                <div class="space-y-3" id="transactions"></div>
-            </div>
-
-            <!-- Advertisement Banner 2 -->
-            <div class="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 mb-6 border border-orange-500 cursor-pointer hover:shadow-2xl transition">
-                <div class="flex items-center justify-between">
-                    <div class="flex-1">
-                        <p class="text-orange-200 text-xs font-semibold mb-1">PARTNER OFFER</p>
-                        <h4 class="text-white font-bold text-lg mb-2">💰 Earn 12% APY on Your Crypto</h4>
-                        <p class="text-orange-100 text-sm mb-3">Stake your crypto with BlockYield and earn passive income. Secure & trusted by 2M+ users.</p>
-                        <button class="bg-white text-orange-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-orange-50 transition">
-                            Start Earning →
-                        </button>
-                    </div>
-                    <div class="hidden md:block ml-6">
-                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Market News Section -->
-            <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-bold text-white">Crypto Market News</h3>
-                    <span class="text-xs text-slate-400">SPONSORED</span>
-                </div>
-                <div class="space-y-3">
-                    <div class="bg-slate-900 p-4 rounded-lg cursor-pointer hover:bg-slate-700 transition">
-                        <div class="flex gap-3">
-                            <div class="bg-green-500/20 p-2 rounded-lg h-fit">
-                                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                                </svg>
+                
+                <div>
+                    <h3 class="text-white font-semibold mb-3 text-sm">What Our Users Say</h3>
+                    <div class="space-y-3">
+                        <div class="bg-slate-900 p-3 rounded-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-xs font-bold">MJ</div>
+                                <div>
+                                    <p class="text-white text-xs font-semibold">Michael Johnson</p>
+                                    <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                                </div>
                             </div>
-                            <div class="flex-1">
-                                <p class="text-white font-semibold text-sm mb-1">Bitcoin Surges Past $45K</p>
-                                <p class="text-slate-400 text-xs">Institutional investors drive BTC to new yearly highs as ETF approval speculation grows.</p>
-                                <p class="text-green-400 text-xs mt-2">+8.5% today</p>
+                            <p class="text-slate-400 text-xs">"Best crypto wallet I've used. Fast, secure, and easy to navigate!"</p>
+                        </div>
+                        
+                        <div class="bg-slate-900 p-3 rounded-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold">SR</div>
+                                <div>
+                                    <p class="text-white text-xs font-semibold">Sarah Rodriguez</p>
+                                    <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                                </div>
                             </div>
+                            <p class="text-slate-400 text-xs">"Love the instant transfers! Sent BTC to my friend in seconds."</p>
+                        </div>
+                        
+                        <div class="bg-slate-900 p-3 rounded-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold">DK</div>
+                                <div>
+                                    <p class="text-white text-xs font-semibold">David Kim</p>
+                                    <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-400 text-xs">"Outstanding security features. My crypto is safe and accessible 24/7."</p>
                         </div>
                     </div>
-                    <div class="bg-slate-900 p-4 rounded-lg cursor-pointer hover:bg-slate-700 transition">
-                        <div class="flex gap-3">
-                            <div class="bg-blue-500/20 p-2 rounded-lg h-fit">
-                                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-white font-semibold text-sm mb-1">Ethereum 2.0 Upgrade Complete</p>
-                                <p class="text-slate-400 text-xs">Major network upgrade promises 99% reduction in energy consumption and faster transactions.</p>
-                                <p class="text-blue-400 text-xs mt-2">Read more →</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Admin Panel -->
-        <div id="adminPanel" class="hidden">
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- User Selection -->
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
-                    <h3 class="text-xl font-bold text-white mb-4">Select User</h3>
-                    <div class="space-y-3" id="userList"></div>
-                </div>
-
-                <!-- Top Up Panel -->
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
-                    <h3 class="text-xl font-bold text-white mb-4">Top Up Balance</h3>
-                    <div id="topUpSection" class="space-y-4">
-                        <p class="text-slate-400 text-sm">Select a user from the list to top up their balance</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- All Users Overview -->
-            <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 mt-6">
-                <h3 class="text-xl font-bold text-white mb-4">All Users Overview</h3>
-                <div id="allUsersOverview"></div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    // Firebase Configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyD_nKzc_5swvqzvh5xbpWrl47E3ru6STKk",
-        authDomain: "cryptovault-wallet-d344c.firebaseapp.com",
-        databaseURL: "https://cryptovault-wallet-d344c-default-rtdb.firebaseio.com",
-        projectId: "cryptovault-wallet-d344c",
-        storageBucket: "cryptovault-wallet-d344c.firebasestorage.app",
-        messagingSenderId: "403255737984",
-        appId: "1:403255737984:web:8cfd9e991e1ce5129d7065"
-    };
-
-    // Initialize Firebase (if config is provided)
-    let database;
-    try {
-        firebase.initializeApp(firebaseConfig);
-        database = firebase.database();
-    } catch (e) {
-        console.log("Firebase not configured, using memory storage");
-    }
-
-    const prices = {
-        btc: 43250.00,
-        eth: 2280.50,
-        usdt: 1.00
-    };
-
-    // Demo users data
-    const users = {
-        'jimmy@cryptovault.com': {
-            password: 'password123',
-            name: 'Jimmy James',
-            avatar: 'JJ',
-            address: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
-            role: 'user',
-            balances: { btc: 0.5234, eth: 2.8901, usdt: 5420.00 },
-            transactions: [
-                { type: 'received', crypto: 'BTC', amount: 0.0234, usd: 1012.05, date: '2025-11-14', from: '1A1z...k3P2' },
-                { type: 'sent', crypto: 'ETH', amount: 0.5, usd: 1140.25, date: '2025-11-13', to: '0x742...9fE3' }
-            ]
-        },
-        'grace@cryptovault.com': {
-            password: 'password123',
-            name: 'Grace Charis',
-            avatar: 'GC',
-            address: '0x742d35Cc6634C0532925a3b844Bc9e7595f9fE3',
-            role: 'user',
-            balances: { btc: 5.8920, eth: 120.4567, usdt: 847530.00 },
-            transactions: [
-                { type: 'received', crypto: 'BTC', amount: 2.5, usd: 108125.00, date: '2025-11-14', from: '0x9F3...c8A1' },
-                { type: 'received', crypto: 'USDT', amount: 500000, usd: 500000.00, date: '2025-11-13', from: '0xD8F...2b3C' },
-                { type: 'received', crypto: 'ETH', amount: 100, usd: 228050.00, date: '2025-11-12', from: '0x1E4...7fB2' }
-            ]
-        },
-        'admin@cryptovault.com': {
-            password: 'admin123',
-            name: 'Administrator',
-            avatar: 'AD',
-            address: '0xAdmin000000000000000000000000000000000',
-            role: 'admin',
-            balances: { btc: 0, eth: 0, usdt: 0 },
-            transactions: []
-        }
-    };
-
-    let currentUser = null;
-    let selectedUserForTopUp = null;
-
-    // Generate random wallet address
-    function generateWalletAddress(crypto) {
-        if (crypto === 'btc') {
-            return '1' + Math.random().toString(36).substring(2, 15).toUpperCase() + Math.random().toString(36).substring(2, 15).toUpperCase();
-        } else {
-            return '0x' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-        }
-    }
-
-    // Show/Hide forms
-    window.showRegisterForm = function() {
-        document.getElementById('loginScreen').classList.add('hidden');
-        document.getElementById('registerScreen').classList.remove('hidden');
-    };
-
-    window.showLoginForm = function() {
-        document.getElementById('registerScreen').classList.add('hidden');
-        document.getElementById('loginScreen').classList.remove('hidden');
-    };
-
-    // Register new user
-    document.getElementById('registerBtn').addEventListener('click', register);
-
-    function register() {
-        const name = document.getElementById('registerName').value.trim();
-        const email = document.getElementById('registerEmail').value.trim().toLowerCase();
-        const password = document.getElementById('registerPassword').value;
-
-        if (!name || !email || !password) {
-            alert('Please fill all fields');
-            return;
-        }
-
-        if (users[email]) {
-            alert('Email already registered');
-            return;
-        }
-
-        if (password.length < 6) {
-            alert('Password must be at least 6 characters');
-            return;
-        }
-
-        // Create new user
-        const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
-        users[email] = {
-            password: password,
-            name: name,
-            avatar: initials,
-            address: generateWalletAddress('eth'),
-            role: 'user',
-            balances: { btc: 0, eth: 0, usdt: 0 },
-            transactions: []
-        };
-
-        // Save to Firebase
-        if (database) {
-            const userKey = email.replace(/[.@]/g, '_');
-            database.ref('users/' + userKey).set({
-                name: name,
-                email: email,
-                password: password, // Note: In production, NEVER store plain passwords!
-                avatar: initials,
-                address: users[email].address,
-                role: 'user',
-                balances: { btc: 0, eth: 0, usdt: 0 },
-                transactions: [],
-                createdAt: new Date().toISOString()
-            }).then(() => {
-                console.log('User saved to Firebase successfully!');
-            }).catch((error) => {
-                console.error('Firebase error:', error);
-            });
-        }
-
-        alert('Account created successfully! Please login.');
-        showLoginForm();
-        document.getElementById('registerName').value = '';
-        document.getElementById('registerEmail').value = '';
-        document.getElementById('registerPassword').value = '';
-    }
-
-    // Login
-    document.getElementById('loginBtn').addEventListener('click', login);
-    document.getElementById('loginPassword').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') login();
-    });
-
-    function login() {
-        const email = document.getElementById('loginEmail').value.trim().toLowerCase();
-        const password = document.getElementById('loginPassword').value;
-
-        if (users[email] && users[email].password === password) {
-            currentUser = email;
-            document.getElementById('loginScreen').classList.add('hidden');
-            document.getElementById('app').classList.remove('hidden');
-            
-            if (users[email].role === 'admin') {
-                showAdminPanel();
-            } else {
-                showUserDashboard();
-            }
-        } else {
-            alert('Invalid credentials');
-        }
-    }
-
-    // Show user dashboard
-    function showUserDashboard() {
-        const user = users[currentUser];
-        document.getElementById('userDashboard').classList.remove('hidden');
-        document.getElementById('adminPanel').classList.add('hidden');
-        document.getElementById('userName').textContent = user.name;
-        document.getElementById('userAvatar').textContent = user.avatar;
-        document.getElementById('userRole').textContent = 'Account Holder';
-        document.getElementById('walletAddress').textContent = user.address;
-        
-        updateDisplay();
-        renderTransactions();
-        
-        // Listen for balance changes if Firebase is configured
-        if (database) {
-            database.ref('users/' + currentUser.replace(/[.@]/g, '_') + '/balances').on('value', (snapshot) => {
-                if (snapshot.val()) {
-                    users[currentUser].balances = snapshot.val();
-                    updateDisplay();
-                }
-            });
-        }
-    }
-
-    // Show admin panel
-    function showAdminPanel() {
-        document.getElementById('userDashboard').classList.add('hidden');
-        document.getElementById('adminPanel').classList.remove('hidden');
-        document.getElementById('userName').textContent = 'Administrator';
-        document.getElementById('userAvatar').textContent = 'AD';
-        document.getElementById('userRole').textContent = 'Admin Access';
-        
-        renderUserList();
-        renderAllUsersOverview();
-    }
-
-    // Render user list for admin
-    function renderUserList() {
-        const container = document.getElementById('userList');
-        container.innerHTML = Object.keys(users)
-            .filter(email => users[email].role !== 'admin')
-            .map(email => {
-                const user = users[email];
-                const total = user.balances.btc * prices.btc + user.balances.eth * prices.eth + user.balances.usdt * prices.usdt;
-                return `
-                    <div class="bg-slate-900 p-4 rounded-lg cursor-pointer hover:bg-slate-700 transition" onclick="selectUserForTopUp('${email}')">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
-                                ${user.avatar}
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-white font-semibold">${user.name}</p>
-                                <p class="text-slate-400 text-xs">${email}</p>
-                            </div>
-                            <p class="text-green-400 font-semibold">$${total.toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-    }
-
-    // Select user for top up
-    window.selectUserForTopUp = function(email) {
-        selectedUserForTopUp = email;
-        const user = users[email];
-        const section = document.getElementById('topUpSection');
-        section.innerHTML = `
-            <div class="bg-purple-900/20 border border-purple-700 rounded-lg p-3 mb-4">
-                <p class="text-purple-300 text-sm">Topping up for: <span class="font-semibold">${user.name}</span></p>
-            </div>
-            <div>
-                <label class="block text-slate-300 mb-2">Select Cryptocurrency</label>
-                <select id="cryptoSelect" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-                    <option value="btc">Bitcoin (BTC)</option>
-                    <option value="eth">Ethereum (ETH)</option>
-                    <option value="usdt">Tether (USDT)</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-slate-300 mb-2">Amount to Add</label>
-                <input type="number" id="topUpAmount" placeholder="0.00" step="0.0001" 
-                       class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
-            </div>
-            <button onclick="topUpBalance()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
-                Top Up Balance
-            </button>
-            <div class="mt-4 pt-4 border-t border-slate-700">
-                <h4 class="text-white font-semibold mb-2">Current Balances</h4>
-                <div class="space-y-1 text-sm">
-                    <div class="flex justify-between text-slate-300">
-                        <span>Bitcoin:</span>
-                        <span class="font-mono">${user.balances.btc.toFixed(4)} BTC</span>
-                    </div>
-                    <div class="flex justify-between text-slate-300">
-                        <span>Ethereum:</span>
-                        <span class="font-mono">${user.balances.eth.toFixed(4)} ETH</span>
-                    </div>
-                    <div class="flex justify-between text-slate-300">
-                        <span>Tether:</span>
-                        <span class="font-mono">${user.balances.usdt.toFixed(2)} USDT</span>
-                    </div>
+    <!-- Registration Screen -->
+    <div id="registerScreen" class="hidden flex items-center justify-center min-h-screen p-6">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 w-full max-w-md">
+            <div class="flex justify-center mb-6">
+                <div class="bg-purple-600 p-4 rounded-xl">
+                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                    </svg>
                 </div>
             </div>
-        `;
-    };
-
-    // Top up balance
-    window.topUpBalance = function() {
-        if (!selectedUserForTopUp) return;
-        
-        const amount = parseFloat(document.getElementById('topUpAmount').value);
-        const crypto = document.getElementById('cryptoSelect').value;
-        
-        if (amount && amount > 0) {
-            users[selectedUserForTopUp].balances[crypto] += amount;
+            <h1 class="text-3xl font-bold text-white text-center mb-2">Create Account</h1>
+            <p class="text-slate-400 text-center mb-8">Join CryptoVault today</p>
             
-            // Update Firebase if configured
-            if (database) {
-                database.ref('users/' + selectedUserForTopUp.replace(/[.@]/g, '_') + '/balances').set(users[selectedUserForTopUp].balances);
-            }
-            
-            document.getElementById('topUpAmount').value = '';
-            alert(`Successfully added ${amount} ${crypto.toUpperCase()} to ${users[selectedUserForTopUp].name}'s account`);
-            selectUserForTopUp(selectedUserForTopUp);
-            renderAllUsersOverview();
-        }
-    };
-
-    // Render all users overview
-    function renderAllUsersOverview() {
-        const container = document.getElementById('allUsersOverview');
-        container.innerHTML = `
-            <div class="overflow-x-auto">
-                <table class="w-full">
-                    <thead>
-                        <tr class="border-b border-slate-700">
-                            <th class="text-left text-slate-400 font-semibold pb-3">User</th>
-                            <th class="text-right text-slate-400 font-semibold pb-3">Bitcoin</th>
-                            <th class="text-right text-slate-400 font-semibold pb-3">Ethereum</th>
-                            <th class="text-right text-slate-400 font-semibold pb-3">USDT</th>
-                            <th class="text-right text-slate-400 font-semibold pb-3">Total Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${Object.keys(users).filter(email => users[email].role !== 'admin').map(email => {
-                            const user = users[email];
-                            const total = user.balances.btc * prices.btc + user.balances.eth * prices.eth + user.balances.usdt * prices.usdt;
-                            return `
-                                <tr class="border-b border-slate-700/50">
-                                    <td class="py-3">
-                                        <div class="flex items-center gap-2">
-                                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold">
-                                                ${user.avatar}
-                                            </div>
-                                            <span class="text-white font-semibold">${user.name}</span>
-                                        </div>
-                                    </td>
-                                    <td class="text-right text-orange-400 font-mono">${user.balances.btc.toFixed(4)}</td>
-                                    <td class="text-right text-blue-400 font-mono">${user.balances.eth.toFixed(4)}</td>
-                                    <td class="text-right text-green-400 font-mono">${user.balances.usdt.toFixed(2)}</td>
-                                    <td class="text-right text-white font-semibold">$${total.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
-                                </tr>
-                            `;
-                        }).join('')}
-                    </tbody>
-                </table>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Full Name</label>
+                    <input type="text" id="registerName" placeholder="John Doe" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Email Address</label>
+                    <input type="email" id="registerEmail" placeholder="john@example.com" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Password</label>
+                    <input type="password" id="registerPassword" placeholder="Create a strong password" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3 focus:outline-none focus:border-purple-500">
+                </div>
+                <button id="registerBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">
+                    Create Account
+                </button>
+                <div class="text-center">
+                    <button onclick="showLoginForm()" class="text-purple-400 hover:text-purple-300 text-sm">
+                        Already have an account? Sign in
+                    </button>
+                </div>
             </div>
-        `;
-    }
+        </div>
+    </div>
 
-    // Update display for user
-    function updateDisplay() {
-        const user = users[currentUser];
-        const totalValue = user.balances.btc * prices.btc + user.balances.eth * prices.eth + user.balances.usdt * prices.usdt;
-        
-        document.getElementById('totalValue').textContent = '$' + totalValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        document.getElementById('btcAmount').textContent = user.balances.btc.toFixed(4) + ' BTC';
-        document.getElementById('btcValue').textContent = '$' + (user.balances.btc * prices.btc).toLocaleString('en-US', { minimumFractionDigits: 2 });
-        document.getElementById('ethAmount').textContent = user.balances.eth.toFixed(4) + ' ETH';
-        document.getElementById('ethValue').textContent = '$' + (user.balances.eth * prices.eth).toLocaleString('en-US', { minimumFractionDigits: 2 });
-        document.getElementById('usdtAmount').textContent = user.balances.usdt.toFixed(2) + ' USDT';
-        document.getElementById('usdtValue').textContent = '$' + user.balances.usdt.toLocaleString('en-US', { minimumFractionDigits: 2 });
-    }
-
-    // Render transactions
-    function renderTransactions() {
-        const user = users[currentUser];
-        const container = document.getElementById('transactions');
-        container.innerHTML = user.transactions.map(tx => `
-            <div class="flex items-center justify-between p-4 bg-slate-900 rounded-lg">
-                <div class="flex items-center gap-4">
-                    <div class="p-2 rounded-full ${tx.type === 'received' ? 'bg-green-500/20' : 'bg-red-500/20'}">
-                        <svg class="w-5 h-5 ${tx.type === 'received' ? 'text-green-500' : 'text-red-500'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            ${tx.type === 'received' 
-                                ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6"/>'
-                                : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/>'
-                            }
+<!-- Main App -->
+    <div id="app" class="hidden p-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="bg-purple-600 p-3 rounded-xl">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
                         </svg>
                     </div>
                     <div>
-                        <p class="text-white font-semibold">${tx.type === 'received' ? 'Received' : 'Sent'} ${tx.crypto}</p>
-                        <p class="text-slate-400 text-sm">${tx.date} • ${tx.from || tx.to}</p>
+                        <h1 class="text-3xl font-bold text-white">CryptoVault</h1>
+                        <p class="text-purple-300 text-sm">Your Digital Wallet</p>
                     </div>
                 </div>
-                <div class="text-right">
-                    <p class="font-semibold ${tx.type === 'received' ? 'text-green-500' : 'text-red-500'}">
-                        ${tx.type === 'received' ? '+' : '-'}${tx.amount} ${tx.crypto}
-                    </p>
-                    <p class="text-slate-400 text-sm">$${tx.usd.toFixed(2)}</p>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-3 bg-slate-800 px-4 py-2 rounded-lg border border-slate-700">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold" id="userAvatar"></div>
+                        <div>
+                            <p class="text-white font-semibold text-sm" id="userName"></p>
+                            <p class="text-slate-400 text-xs" id="userRole">Account Holder</p>
+                        </div>
+                    </div>
+                    <button id="logoutBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition">Logout</button>
                 </div>
             </div>
-        `).join('');
-    }
 
-    // Copy wallet address
-    window.copyAddress = function() {
-        const address = document.getElementById('walletAddress').textContent;
-        navigator.clipboard.writeText(address);
-        alert('Address copied to clipboard!');
-    };
+            <!-- User Dashboard -->
+            <div id="userDashboard">
+                <!-- Wallet Address -->
+                <div class="bg-slate-800 rounded-xl p-4 mb-6 border border-slate-700">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                            </svg>
+                            <div>
+                                <p class="text-slate-400 text-xs">Wallet Address</p>
+                                <p class="text-white font-mono text-sm" id="walletAddress"></p>
+                            </div>
+                        </div>
+                        <button onclick="copyAddress()" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-xs transition">Copy</button>
+                    </div>
+                </div>
 
-    // Open/Close Send Modal
-    window.openSendModal = function() {
-        document.getElementById('sendModal').classList.remove('hidden');
-    };
+                <!-- Total Balance Card -->
+                <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-6 shadow-2xl">
+                    <p class="text-purple-200 text-sm mb-2">Total Portfolio Value</p>
+                    <h2 class="text-5xl font-bold text-white mb-4" id="totalValue">$0.00</h2>
+                    <div class="flex items-center gap-2 text-green-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        <span class="font-semibold">+12.5% this month</span>
+                    </div>
+                </div>
 
-    window.closeSendModal = function() {
-        document.getElementById('sendModal').classList.add('hidden');
-        document.getElementById('recipientEmail').value = '';
-        document.getElementById('sendAmount').value = '';
-    };
+                <!-- Holdings Grid -->
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-slate-400 text-sm">Bitcoin</p>
+                                <p class="text-2xl font-bold text-white" id="btcAmount">0.0000 BTC</p>
+                            </div>
+                            <div class="bg-orange-500/20 p-2 rounded-lg">
+                                <span class="text-orange-500 font-bold text-xl">₿</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm" id="btcValue">$0.00</p>
+                    </div>
 
-    // Send crypto to another user
-    window.sendCrypto = function() {
-        const recipientEmail = document.getElementById('recipientEmail').value.trim().toLowerCase();
-        const crypto = document.getElementById('sendCryptoType').value;
-        const amount = parseFloat(document.getElementById('sendAmount').value);
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-slate-400 text-sm">Ethereum</p>
+                                <p class="text-2xl font-bold text-white" id="ethAmount">0.0000 ETH</p>
+                            </div>
+                            <div class="bg-blue-500/20 p-2 rounded-lg">
+                                <span class="text-blue-500 font-bold text-xl">Ξ</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm" id="ethValue">$0.00</p>
+                    </div>
 
-        if (!recipientEmail || !amount || amount <= 0) {
-            alert('Please fill all fields correctly');
-            return;
-        }
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-slate-400 text-sm">Tether USD</p>
+                                <p class="text-2xl font-bold text-white" id="usdtAmount">0.00 USDT</p>
+                            </div>
+                            <div class="bg-green-500/20 p-2 rounded-lg">
+                                <span class="text-green-500 font-bold text-xl">₮</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm" id="usdtValue">$0.00</p>
+                    </div>
+                </div>
 
-        if (!users[recipientEmail]) {
-            alert('Recipient not found in CryptoVault');
-            return;
-        }
+                <!-- Action Buttons -->
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <button onclick="openSendModal()" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 rounded-xl transition flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                        Send Crypto
+                    </button>
+                    <button onclick="openWithdrawModal()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-xl transition flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                        </svg>
+                        Withdraw
+                    </button>
+                </div>
 
-        if (recipientEmail === currentUser) {
-            alert('You cannot send to yourself');
-            return;
-        }
+                <!-- Advertisement Banner 1 -->
+                <div onclick="openBonusModal()" class="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-6 mb-6 border border-blue-500 cursor-pointer hover:shadow-2xl transition">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <p class="text-blue-200 text-xs font-semibold mb-1">SPONSORED</p>
+                            <h4 class="text-white font-bold text-lg mb-2">🚀 Trade Crypto with Zero Fees</h4>
+                            <p class="text-blue-100 text-sm mb-3">Join CryptoExchange Pro and get $50 bonus on your first trade. Limited time offer!</p>
+                            <button class="bg-white text-blue-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-50 transition">Claim Bonus →</button>
+                        </div>
+                        <div class="hidden md:block ml-6">
+                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        if (users[currentUser].balances[crypto] < amount) {
-            alert('Insufficient balance');
-            return;
-        }
+                <!-- Recent Transactions -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 mb-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Recent Transactions</h3>
+                    <div class="space-y-3" id="transactions"></div>
+                </div>
 
-        // Deduct from sender
-        users[currentUser].balances[crypto] -= amount;
-        
-        // Add to recipient
-        users[recipientEmail].balances[crypto] += amount;
+                <!-- Advertisement Banner 2 -->
+                <div onclick="openStakingModal()" class="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 mb-6 border border-orange-500 cursor-pointer hover:shadow-2xl transition">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <p class="text-orange-200 text-xs font-semibold mb-1">PARTNER OFFER</p>
+                            <h4 class="text-white font-bold text-lg mb-2">💰 Earn 12% APY on Your Crypto</h4>
+                            <p class="text-orange-100 text-sm mb-3">Stake your crypto with BlockYield and earn passive income. Secure & trusted by 2M+ users.</p>
+                            <button class="bg-white text-orange-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-orange-50 transition">Start Earning →</button>
+                        </div>
+                        <div class="hidden md:block ml-6">
+                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        // Add transaction to sender
-        const tx = {
-            type: 'sent',
-            crypto: crypto.toUpperCase(),
-            amount: amount,
-            usd: amount * prices[crypto],
-            date: new Date().toISOString().split('T')[0],
-            to: users[recipientEmail].address.substring(0, 6) + '...' + users[recipientEmail].address.slice(-4)
+<!-- Market News Section -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">Crypto Market News</h3>
+                        <span class="text-xs text-slate-400">SPONSORED</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-slate-900 p-4 rounded-lg cursor-pointer hover:bg-slate-700 transition">
+                            <div class="flex gap-3">
+                                <div class="bg-green-500/20 p-2 rounded-lg h-fit">
+                                    <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-white font-semibold text-sm mb-1">Bitcoin Surges Past $45K</p>
+                                    <p class="text-slate-400 text-xs">Institutional investors drive BTC to new yearly highs as ETF approval speculation grows.</p>
+                                    <p class="text-green-400 text-xs mt-2">+8.5% today</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900 p-4 rounded-lg cursor-pointer hover:bg-slate-700 transition">
+                            <div class="flex gap-3">
+                                <div class="bg-blue-500/20 p-2 rounded-lg h-fit">
+                                    <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-white font-semibold text-sm mb-1">Ethereum 2.0 Upgrade Complete</p>
+                                    <p class="text-slate-400 text-xs">Major network upgrade promises 99% reduction in energy consumption and faster transactions.</p>
+                                    <p class="text-blue-400 text-xs mt-2">Read more →</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Panel -->
+            <div id="adminPanel" class="hidden">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h3 class="text-xl font-bold text-white mb-4">Select User</h3>
+                        <div class="space-y-3" id="userList"></div>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h3 class="text-xl font-bold text-white mb-4">Manage Balance</h3>
+                        <div id="topUpSection" class="space-y-4">
+                            <p class="text-slate-400 text-sm">Select a user from the list to manage their balance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 mt-6">
+                    <h3 class="text-xl font-bold text-white mb-4">All Users Overview</h3>
+                    <div id="allUsersOverview"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Send Crypto Modal -->
+    <div id="sendModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
+        <div class="bg-slate-800 rounded-2xl p-6 w-full max-w-md border border-slate-700">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-white">Send Crypto</h3>
+                <button onclick="closeSendModal()" class="text-slate-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Recipient (Email or Wallet Address)</label>
+                    <input type="text" id="recipientEmail" placeholder="user@cryptovault.com or 0x742d..." 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Select Cryptocurrency</label>
+                    <select id="sendCryptoType" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                        <option value="btc">Bitcoin (BTC)</option>
+                        <option value="eth">Ethereum (ETH)</option>
+                        <option value="usdt">Tether (USDT)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Amount</label>
+                    <input type="number" id="sendAmount" placeholder="0.00" step="0.0001" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                </div>
+                <button onclick="sendCrypto()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition">Send Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Withdraw Modal -->
+    <div id="withdrawModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
+        <div class="bg-slate-800 rounded-2xl p-6 w-full max-w-md border border-slate-700">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-white">Withdraw Funds</h3>
+                <button onclick="closeWithdrawModal()" class="text-slate-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Select Cryptocurrency</label>
+                    <select id="withdrawCryptoType" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                        <option value="btc">Bitcoin (BTC)</option>
+                        <option value="eth">Ethereum (ETH)</option>
+                        <option value="usdt">Tether (USDT)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">External Wallet Address</label>
+                    <input type="text" id="withdrawAddress" placeholder="Enter wallet address" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Amount</label>
+                    <input type="number" id="withdrawAmount" placeholder="0.00" step="0.0001" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                </div>
+                <div class="bg-yellow-900/20 border border-yellow-700 rounded-lg p-3">
+                    <p class="text-yellow-300 text-xs">⚠️ Network Fee: 0.0001 BTC / 0.001 ETH / 1 USDT</p>
+                </div>
+                <button onclick="withdrawCrypto()" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition">Withdraw Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bonus Claim Modal -->
+    <div id="bonusModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
+        <div class="bg-slate-800 rounded-2xl p-6 w-full max-w-md border border-slate-700">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-white">Claim Your $50 Bonus</h3>
+                <button onclick="closeBonusModal()" class="text-slate-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-blue-900/30 border border-blue-700 rounded-lg p-4 text-center">
+                    <p class="text-blue-200 text-lg font-bold mb-2">🎉 $50 Trading Bonus</p>
+                    <p class="text-blue-300 text-sm">Sign up for CryptoExchange Pro today</p>
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Your Email</label>
+                    <input type="email" id="bonusEmail" placeholder="Enter your email" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                </div>
+                <button onclick="claimBonus()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">Claim Bonus Now</button>
+                <p class="text-slate-400 text-xs text-center">*This is a demo feature. No real bonus will be credited.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Staking Modal -->
+    <div id="stakingModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
+        <div class="bg-slate-800 rounded-2xl p-6 w-full max-w-md border border-slate-700">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-white">Staking Calculator</h3>
+                <button onclick="closeStakingModal()" class="text-slate-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-orange-900/30 border border-orange-700 rounded-lg p-4 text-center">
+                    <p class="text-orange-200 text-lg font-bold mb-2">💰 12% APY</p>
+                    <p class="text-orange-300 text-sm">Earn passive income on your crypto</p>
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Amount to Stake</label>
+                    <input type="number" id="stakeAmount" placeholder="1000" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2 text-sm">Staking Period</label>
+                    <select id="stakePeriod" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                        <option value="30">30 Days</option>
+                        <option value="90">90 Days</option>
+                        <option value="180">180 Days</option>
+                        <option value="365">1 Year</option>
+                    </select>
+                </div>
+                <button onclick="calculateStaking()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition">Calculate Earnings</button>
+                <div id="stakingResult" class="hidden bg-green-900/30 border border-green-700 rounded-lg p-4">
+                    <p class="text-green-200 text-sm mb-1">Estimated Earnings:</p>
+                    <p class="text-green-400 text-2xl font-bold" id="stakingEarnings">$0.00</p>
+                </div>
+                <p class="text-slate-400 text-xs text-center">*This is a demo calculator. No real staking will occur.</p>
+            </div>
+        </div>
+    </div>
+
+ <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 mt-12">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-purple-600 p-2 rounded-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-white font-bold text-xl">CryptoVault</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">Your trusted cryptocurrency wallet platform. Secure, fast, and reliable digital asset management for the modern investor.</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <div>
+                                <p class="text-slate-300 font-semibold">Corporate Address:</p>
+                                <p class="text-slate-400">125 Blockchain Avenue, Suite 400<br>San Francisco, CA 94105, United States</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <div>
+                                <p class="text-slate-300 font-semibold">Email: <span class="text-purple-400">support@cryptovault.com</span></p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <div>
+                                <p class="text-slate-300 font-semibold">Phone: <span class="text-purple-400">+1 (415) 555-0100</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Careers</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Press Kit</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Cookie Policy</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-purple-400 transition">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 mb-8">
+                <h4 class="text-white font-semibold mb-4 text-sm">Licenses & Regulations</h4>
+                <div class="grid md:grid-cols-3 gap-4 text-xs">
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <div class="flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            <p class="text-white font-semibold">FinCEN Registered</p>
+                        </div>
+                        <p class="text-slate-400">MSB Registration: 31000198765432</p>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <div class="flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            <p class="text-white font-semibold">SOC 2 Type II Certified</p>
+                        </div>
+                        <p class="text-slate-400">Security Audit: 2025-Q1</p>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <div class="flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            <p class="text-white font-semibold">ISO 27001 Compliant</p>
+                        </div>
+                        <p class="text-slate-400">Information Security Management</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-400 text-sm">© 2020 CryptoVault Technologies Inc. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD_nKzc_5swvqzvh5xbpWrl47E3ru6STKk",
+            authDomain: "cryptovault-wallet-d344c.firebaseapp.com",
+            databaseURL: "https://cryptovault-wallet-d344c-default-rtdb.firebaseio.com",
+            projectId: "cryptovault-wallet-d344c",
+            storageBucket: "cryptovault-wallet-d344c.firebasestorage.app",
+            messagingSenderId: "403255737984",
+            appId: "1:403255737984:web:8cfd9e991e1ce5129d7065"
         };
-        users[currentUser].transactions.unshift(tx);
 
-        // Add transaction to recipient
-        const rxTx = {
-            type: 'received',
-            crypto: crypto.toUpperCase(),
-            amount: amount,
-            usd: amount * prices[crypto],
-            date: new Date().toISOString().split('T')[0],
-            from: users[currentUser].address.substring(0, 6) + '...' + users[currentUser].address.slice(-4)
-        };
-        users[recipientEmail].transactions.unshift(rxTx);
-
-        // Update Firebase if configured
-        if (database) {
-            database.ref('users/' + currentUser.replace(/[.@]/g, '_') + '/balances').set(users[currentUser].balances);
-            database.ref('users/' + recipientEmail.replace(/[.@]/g, '_') + '/balances').set(users[recipientEmail].balances);
+        // Initialize Firebase
+        let database;
+        try {
+            firebase.initializeApp(firebaseConfig);
+            database = firebase.database();
+        } catch (e) {
+            console.log("Firebase not configured, using memory storage");
         }
 
-        updateDisplay();
-        renderTransactions();
-        closeSendModal();
-        alert(`Successfully sent ${amount} ${crypto.toUpperCase()} to ${users[recipientEmail].name}`);
-    };
-
-    // Open/Close Withdraw Modal
-    window.openWithdrawModal = function() {
-        document.getElementById('withdrawModal').classList.remove('hidden');
-    };
-
-    window.closeWithdrawModal = function() {
-        document.getElementById('withdrawModal').classList.add('hidden');
-        document.getElementById('withdrawAddress').value = '';
-        document.getElementById('withdrawAmount').value = '';
-    };
-
-    // Withdraw crypto
-    window.withdrawCrypto = function() {
-        const address = document.getElementById('withdrawAddress').value.trim();
-        const crypto = document.getElementById('withdrawCryptoType').value;
-        const amount = parseFloat(document.getElementById('withdrawAmount').value);
-
-        const networkFees = {
-            btc: 0.0001,
-            eth: 0.001,
-            usdt: 1
+        const prices = {
+            btc: 43250.00,
+            eth: 2280.50,
+            usdt: 1.00
         };
 
-        if (!address || !amount || amount <= 0) {
-            alert('Please fill all fields correctly');
-            return;
+        // Generate random transactions for history
+        function generateTransactions(months) {
+            const transactions = [];
+            const types = ['received', 'sent'];
+            const cryptos = ['BTC', 'ETH', 'USDT'];
+            const startDate = new Date('2025-01-01');
+            const endDate = new Date('2025-11-17');
+            
+            for (let i = 0; i < months * 3; i++) {
+                const randomDate = new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
+                const type = types[Math.floor(Math.random() * types.length)];
+                const crypto = cryptos[Math.floor(Math.random() * cryptos.length)];
+                let amount;
+                
+                if (crypto === 'BTC') amount = (Math.random() * 0.5).toFixed(4);
+                else if (crypto === 'ETH') amount = (Math.random() * 2).toFixed(4);
+                else amount = (Math.random() * 5000).toFixed(2);
+                
+                const usd = parseFloat(amount) * (crypto === 'BTC' ? prices.btc : crypto === 'ETH' ? prices.eth : prices.usdt);
+                const address = crypto === 'BTC' ? '1' + Math.random().toString(36).substring(2, 8) : '0x' + Math.random().toString(36).substring(2, 8);
+                
+                transactions.push({
+                    type: type,
+                    crypto: crypto,
+                    amount: parseFloat(amount),
+                    usd: usd,
+                    date: randomDate.toISOString().split('T')[0],
+                    [type === 'received' ? 'from' : 'to']: address
+                });
+            }
+            
+            return transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
         }
 
-        const totalAmount = amount + networkFees[crypto];
-
-        if (users[currentUser].balances[crypto] < totalAmount) {
-            alert(`Insufficient balance. You need ${totalAmount} ${crypto.toUpperCase()} (including network fee)`);
-            return;
-        }
-
-        // Deduct amount + fee
-        users[currentUser].balances[crypto] -= totalAmount;
-
-        // Add transaction
-        const tx = {
-            type: 'sent',
-            crypto: crypto.toUpperCase(),
-            amount: amount,
-            usd: amount * prices[crypto],
-            date: new Date().toISOString().split('T')[0],
-            to: address.substring(0, 6) + '...' + address.slice(-4)
+// Demo users data with extensive transaction history
+        const users = {
+            'jimmy@cryptovault.com': {
+                password: 'password123',
+                name: 'Jimmy James',
+                avatar: 'JJ',
+                address: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
+                role: 'user',
+                balances: { btc: 5.8920, eth: 87.4321, usdt: 906468.00 },
+                transactions: generateTransactions(11)
+            },
+            'grace@cryptovault.com': {
+                password: 'password123',
+                name: 'Grace Charis',
+                avatar: 'GC',
+                address: '0x742d35Cc6634C0532925a3b844Bc9e7595f9fE3',
+                role: 'user',
+                balances: { btc: 11.7840, eth: 174.8642, usdt: 1812936.00 },
+                transactions: generateTransactions(11)
+            },
+            'admin@cryptovault.com': {
+                password: 'admin123',
+                name: 'Administrator',
+                avatar: 'AD',
+                address: '0xAdmin000000000000000000000000000000000',
+                role: 'admin',
+                balances: { btc: 0, eth: 0, usdt: 0 },
+                transactions: []
+            }
         };
-        users[currentUser].transactions.unshift(tx);
 
-        // Update Firebase if configured
-        if (database) {
-            database.ref('users/' + currentUser.replace(/[.@]/g, '_') + '/balances').set(users[currentUser].balances);
+        let currentUser = null;
+        let selectedUserForTopUp = null;
+
+        // Session Management - Keep user logged in
+        function saveSession(email) {
+            localStorage.setItem('cryptovault_session', email);
         }
 
-        updateDisplay();
-        renderTransactions();
-        closeWithdrawModal();
-        alert(`Successfully withdrew ${amount} ${crypto.toUpperCase()} to external wallet`);
-    };
+        function loadSession() {
+            return localStorage.getItem('cryptovault_session');
+        }
 
-    // Logout
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-        currentUser = null;
-        selectedUserForTopUp = null;
-        document.getElementById('app').classList.add('hidden');
-        document.getElementById('loginScreen').classList.remove('hidden');
-        document.getElementById('loginEmail').value = '';
-        document.getElementById('loginPassword').value = '';
-    });
-</script>
+        function clearSession() {
+            localStorage.removeItem('cryptovault_session');
+        }
+
+        // Check for existing session on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedSession = loadSession();
+            if (savedSession && users[savedSession]) {
+                currentUser = savedSession;
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('app').classList.remove('hidden');
+                
+                if (users[savedSession].role === 'admin') {
+                    showAdminPanel();
+                } else {
+                    showUserDashboard();
+                }
+            }
+        });
+
+        // Generate random wallet address
+        function generateWalletAddress(crypto) {
+            if (crypto === 'btc') {
+                return '1' + Math.random().toString(36).substring(2, 15).toUpperCase() + Math.random().toString(36).substring(2, 15).toUpperCase();
+            } else {
+                return '0x' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            }
+        }
+
+        // Show/Hide forms
+        window.showRegisterForm = function() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('registerScreen').classList.remove('hidden');
+        };
+
+        window.showLoginForm = function() {
+            document.getElementById('registerScreen').classList.add('hidden');
+            document.getElementById('loginScreen').classList.remove('hidden');
+        };
+
+        // Register new user
+        document.getElementById('registerBtn').addEventListener('click', register);
+
+        function register() {
+            const name = document.getElementById('registerName').value.trim();
+            const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+            const password = document.getElementById('registerPassword').value;
+
+            if (!name || !email || !password) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            if (users[email]) {
+                alert('Email already registered');
+                return;
+            }
+
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters');
+                return;
+            }
+
+            const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+            users[email] = {
+                password: password,
+                name: name,
+                avatar: initials,
+                address: generateWalletAddress('eth'),
+                role: 'user',
+                balances: { btc: 0, eth: 0, usdt: 0 },
+                transactions: []
+            };
+
+            if (database) {
+                const userKey = email.replace(/[.@]/g, '_');
+                database.ref('users/' + userKey).set({
+                    name: name,
+                    email: email,
+                    password: password,
+                    avatar: initials,
+                    address: users[email].address,
+                    role: 'user',
+                    balances: { btc: 0, eth: 0, usdt: 0 },
+                    transactions: [],
+                    createdAt: new Date().toISOString()
+                }).then(() => {
+                    console.log('User saved to Firebase successfully!');
+                }).catch((error) => {
+                    console.error('Firebase error:', error);
+                });
+            }
+
+            alert('Account created successfully! Please login.');
+            showLoginForm();
+            document.getElementById('registerName').value = '';
+            document.getElementById('registerEmail').value = '';
+            document.getElementById('registerPassword').value = '';
+        }
+
+        // Login
+        document.getElementById('loginBtn').addEventListener('click', login);
+        document.getElementById('loginPassword').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') login();
+        });
+
+        function login() {
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const password = document.getElementById('loginPassword').value;
+
+            if (users[email] && users[email].password === password) {
+                currentUser = email;
+                saveSession(email);
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('app').classList.remove('hidden');
+                
+                if (users[email].role === 'admin') {
+                    showAdminPanel();
+                } else {
+                    showUserDashboard();
+                }
+            } else {
+                alert('Invalid credentials');
+            }
+        }
+
+        // Show user dashboard
+        function showUserDashboard() {
+            const user = users[currentUser];
+            document.getElementById('userDashboard').classList.remove('hidden');
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userAvatar').textContent = user.avatar;
+            document.getElementById('userRole').textContent = 'Account Holder';
+            document.getElementById('walletAddress').textContent = user.address;
+            
+            updateDisplay();
+            renderTransactions();
+            
+            if (database) {
+                database.ref('users/' + currentUser.replace(/[.@]/g, '_') + '/balances').on('value', (snapshot) => {
+                    if (snapshot.val()) {
+                        users[currentUser].balances = snapshot.val();
+                        updateDisplay();
+                    }
+                });
+            }
+        }
+
+        // Show admin panel
+        function showAdminPanel() {
+            document.getElementById('userDashboard').classList.add('hidden');
+            document.getElementById('adminPanel').classList.remove('hidden');
+            document.getElementById('userName').textContent = 'Administrator';
+            document.getElementById('userAvatar').textContent = 'AD';
+            document.getElementById('userRole').textContent = 'Admin Access';
+            
+            renderUserList();
+            renderAllUsersOverview();
+        }
+
+        // Render user list for admin
+        function renderUserList() {
+            const container = document.getElementById('userList');
+            container.innerHTML = Object.keys(users)
+                .filter(email => users[email].role !== 'admin')
+                .map(email => {
+                    const user = users[email];
+                    const total = user.balances.btc * prices.btc + user.balances.eth * prices.eth + user.balances.usdt * prices.usdt;
+                    return `
+                        <div class="bg-slate-900 p-4 rounded-lg cursor-pointer hover:bg-slate-700 transition" onclick="selectUserForTopUp('${email}')">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
+                                    ${user.avatar}
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-white font-semibold">${user.name}</p>
+                                    <p class="text-slate-400 text-xs">${email}</p>
+                                </div>
+                                <p class="text-green-400 font-semibold">$${total.toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+        }
+
+// Select user for top up/deduct
+        window.selectUserForTopUp = function(email) {
+            selectedUserForTopUp = email;
+            const user = users[email];
+            const section = document.getElementById('topUpSection');
+            section.innerHTML = `
+                <div class="bg-purple-900/20 border border-purple-700 rounded-lg p-3 mb-4">
+                    <p class="text-purple-300 text-sm">Managing balance for: <span class="font-semibold">${user.name}</span></p>
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2">Select Cryptocurrency</label>
+                    <select id="cryptoSelect" class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                        <option value="btc">Bitcoin (BTC)</option>
+                        <option value="eth">Ethereum (ETH)</option>
+                        <option value="usdt">Tether (USDT)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-slate-300 mb-2">Amount</label>
+                    <input type="number" id="topUpAmount" placeholder="0.00" step="0.0001" 
+                           class="w-full bg-slate-900 text-white border border-slate-700 rounded-lg p-3">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="topUpBalance()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition">
+                        + Add Funds
+                    </button>
+                    <button onclick="deductBalance()" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg transition">
+                        - Deduct Funds
+                    </button>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-700">
+                    <h4 class="text-white font-semibold mb-2">Current Balances</h4>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between text-slate-300">
+                            <span>Bitcoin:</span>
+                            <span class="font-mono">${user.balances.btc.toFixed(4)} BTC</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span>Ethereum:</span>
+                            <span class="font-mono">${user.balances.eth.toFixed(4)} ETH</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span>Tether:</span>
+                            <span class="font-mono">${user.balances.usdt.toFixed(2)} USDT</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        // Top up balance (ADD)
+        window.topUpBalance = function() {
+            if (!selectedUserForTopUp) return;
+            
+            const amount = parseFloat(document.getElementById('topUpAmount').value);
+            const crypto = document.getElementById('cryptoSelect').value;
+            
+            if (amount && amount > 0) {
+                users[selectedUserForTopUp].balances[crypto] += amount;
+                
+                if (database) {
+                    database.ref('users/' + selectedUserForTopUp.replace(/[.@]/g, '_') + '/balances').set(users[selectedUserForTopUp].balances);
+                }
+                
+                document.getElementById('topUpAmount').value = '';
+                alert(`Successfully added ${amount} ${crypto.toUpperCase()} to ${users[selectedUserForTopUp].name}'s account`);
+                selectUserForTopUp(selectedUserForTopUp);
+                renderAllUsersOverview();
+            } else {
+                alert('Please enter a valid amount');
+            }
+        };
+
+        // Deduct balance (SUBTRACT)
+        window.deductBalance = function() {
+            if (!selectedUserForTopUp) return;
+            
+            const amount = parseFloat(document.getElementById('topUpAmount').value);
+            const crypto = document.getElementById('cryptoSelect').value;
+            
+            if (amount && amount > 0) {
+                if (users[selectedUserForTopUp].balances[crypto] < amount) {
+                    alert('Insufficient balance to deduct');
+                    return;
+                }
+                
+                users[selectedUserForTopUp].balances[crypto] -= amount;
+                
+                if (database) {
+                    database.ref('users/' + selectedUserForTopUp.replace(/[.@]/g, '_') + '/balances').set(users[selectedUserForTopUp].balances);
+                }
+                
+                document.getElementById('topUpAmount').value = '';
+                alert(`Successfully deducted ${amount} ${crypto.toUpperCase()} from ${users[selectedUserForTopUp].name}'s account`);
+                selectUserForTopUp(selectedUserForTopUp);
+                renderAllUsersOverview();
+            } else {
+                alert('Please enter a valid amount');
+            }
+        };
+
+        // Render all users overview
+        function renderAllUsersOverview() {
+            const container = document.getElementById('allUsersOverview');
+            container.innerHTML = `
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-slate-700">
+                                <th class="text-left text-slate-400 font-semibold pb-3">User</th>
+                                <th class="text-right text-slate-400 font-semibold pb-3">Bitcoin</th>
+                                <th class="text-right text-slate-400 font-semibold pb-3">Ethereum</th>
+                                <th class="text-right text-slate-400 font-semibold pb-3">USDT</th>
+                                <th class="text-right text-slate-400 font-semibold pb-3">Total Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${Object.keys(users).filter(email => users[email].role !== 'admin').map(email => {
+                                const user = users[email];
+                                const total = user.balances.btc * prices.btc + user.balances.eth * prices.eth + user.balances.usdt * prices.usdt;
+                                return `
+                                    <tr class="border-b border-slate-700/50">
+                                        <td class="py-3">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold">
+                                                    ${user.avatar}
+                                                </div>
+                                                <span class="text-white font-semibold">${user.name}</span>
+                                            </div>
+                                        </td>
+                                        <td class="text-right text-orange-400 font-mono">${user.balances.btc.toFixed(4)}</td>
+                                        <td class="text-right text-blue-400 font-mono">${user.balances.eth.toFixed(4)}</td>
+                                        <td class="text-right text-green-400 font-mono">${user.balances.usdt.toFixed(2)}</td>
+                                        <td class="text-right text-white font-semibold">$${total.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                                    </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // Update display for user
+        function updateDisplay() {
+            const user = users[currentUser];
+            const totalValue = user.balances.btc * prices.btc + user.balances.eth * prices.eth + user.balances.usdt * prices.usdt;
+            
+            document.getElementById('totalValue').textContent = '$' + totalValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('btcAmount').textContent = user.balances.btc.toFixed(4) + ' BTC';
+            document.getElementById('btcValue').textContent = '$' + (user.balances.btc * prices.btc).toLocaleString('en-US', { minimumFractionDigits: 2 });
+            document.getElementById('ethAmount').textContent = user.balances.eth.toFixed(4) + ' ETH';
+            document.getElementById('ethValue').textContent = '$' + (user.balances.eth * prices.eth).toLocaleString('en-US', { minimumFractionDigits: 2 });
+            document.getElementById('usdtAmount').textContent = user.balances.usdt.toFixed(2) + ' USDT';
+            document.getElementById('usdtValue').textContent = '$' + user.balances.usdt.toLocaleString('en-US', { minimumFractionDigits: 2 });
+        }
+
+        // Render transactions
+        function renderTransactions() {
+            const user = users[currentUser];
+            const container = document.getElementById('transactions');
+            const recentTransactions = user.transactions.slice(0, 10);
+            
+            container.innerHTML = recentTransactions.map(tx => `
+                <div class="flex items-center justify-between p-4 bg-slate-900 rounded-lg">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2 rounded-full ${tx.type === 'received' ? 'bg-green-500/20' : 'bg-red-500/20'}">
+                            <svg class="w-5 h-5 ${tx.type === 'received' ? 'text-green-500' : 'text-red-500'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                ${tx.type === 'received' 
+                                    ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6"/>'
+                                    : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/>'
+                                }
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">${tx.type === 'received' ? 'Received' : 'Sent'} ${tx.crypto}</p>
+                            <p class="text-slate-400 text-sm">${tx.date} • ${tx.from || tx.to}</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-semibold ${tx.type === 'received' ? 'text-green-500' : 'text-red-500'}">
+                            ${tx.type === 'received' ? '+' : '-'}${tx.amount} ${tx.crypto}
+                        </p>
+                        <p class="text-slate-400 text-sm">$${tx.usd.toFixed(2)}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Copy wallet address
+        window.copyAddress = function() {
+            const address = document.getElementById('walletAddress').textContent;
+            navigator.clipboard.writeText(address);
+            alert('Address copied to clipboard!');
+        };
+
+        // Open/Close Send Modal
+        window.openSendModal = function() {
+            document.getElementById('sendModal').classList.remove('hidden');
+        };
+
+        window.closeSendModal = function() {
+            document.getElementById('sendModal').classList.add('hidden');
+            document.getElementById('recipientEmail').value = '';
+            document.getElementById('sendAmount').value = '';
+        };
+
+        // Find user by email or wallet address
+        function findUserByIdentifier(identifier) {
+            identifier = identifier.trim().toLowerCase();
+            
+            // Check if it's an email
+            if (users[identifier]) {
+                return identifier;
+            }
+            
+            // Check if it's a wallet address
+            for (let email in users) {
+                if (users[email].address.toLowerCase() === identifier) {
+                    return email;
+                }
+            }
+            
+            return null;
+        }
+
+        // Send crypto to another user
+        window.sendCrypto = function() {
+            const recipientIdentifier = document.getElementById('recipientEmail').value;
+            const crypto = document.getElementById('sendCryptoType').value;
+            const amount = parseFloat(document.getElementById('sendAmount').value);
+
+            if (!recipientIdentifier || !amount || amount <= 0) {
+                alert('Please fill all fields correctly');
+                return;
+            }
+
+            const recipientEmail = findUserByIdentifier(recipientIdentifier);
+
+            if (!recipientEmail) {
+                alert('Recipient not found in CryptoVault');
+                return;
+            }
+
+            if (recipientEmail === currentUser) {
+                alert('You cannot send to yourself');
+                return;
+            }
+
+            if (users[currentUser].balances[crypto] < amount) {
+                alert('Insufficient balance');
+                return;
+            }
+
+            users[currentUser].balances[crypto] -= amount;
+            users[recipientEmail].balances[crypto] += amount;
+
+            const tx = {
+                type: 'sent',
+                crypto: crypto.toUpperCase(),
+                amount: amount,
+                usd: amount * prices[crypto],
+                date: new Date().toISOString().split('T')[0],
+                to: users[recipientEmail].address.substring(0, 6) + '...' + users[recipientEmail].address.slice(-4)
+            };
+            users[currentUser].transactions.unshift(tx);
+
+            const rxTx = {
+                type: 'received',
+                crypto: crypto.toUpperCase(),
+                amount: amount,
+                usd: amount * prices[crypto],
+                date: new Date().toISOString().split('T')[0],
+                from: users[currentUser].address.substring(0, 6) + '...' + users[currentUser].address.slice(-4)
+            };
+            users[recipientEmail].transactions.unshift(rxTx);
+
+            if (database) {
+                database.ref('users/' + currentUser.replace(/[.@]/g, '_') + '/balances').set(users[currentUser].balances);
+                database.ref('users/' + recipientEmail.replace(/[.@]/g, '_') + '/balances').set(users[recipientEmail].balances);
+            }
+
+            updateDisplay();
+            renderTransactions();
+            closeSendModal();
+            alert(`Successfully sent ${amount} ${crypto.toUpperCase()} to ${users[recipientEmail].name}`);
+        };
+
+  // Open/Close Withdraw Modal
+        window.openWithdrawModal = function() {
+            document.getElementById('withdrawModal').classList.remove('hidden');
+        };
+
+        window.closeWithdrawModal = function() {
+            document.getElementById('withdrawModal').classList.add('hidden');
+            document.getElementById('withdrawAddress').value = '';
+            document.getElementById('withdrawAmount').value = '';
+        };
+
+        // Withdraw crypto
+        window.withdrawCrypto = function() {
+            const address = document.getElementById('withdrawAddress').value.trim();
+            const crypto = document.getElementById('withdrawCryptoType').value;
+            const amount = parseFloat(document.getElementById('withdrawAmount').value);
+
+            const networkFees = {
+                btc: 0.0001,
+                eth: 0.001,
+                usdt: 1
+            };
+
+            if (!address || !amount || amount <= 0) {
+                alert('Please fill all fields correctly');
+                return;
+            }
+
+            const totalAmount = amount + networkFees[crypto];
+
+            if (users[currentUser].balances[crypto] < totalAmount) {
+                alert(`Insufficient balance. You need ${totalAmount} ${crypto.toUpperCase()} (including network fee)`);
+                return;
+            }
+
+            users[currentUser].balances[crypto] -= totalAmount;
+
+            const tx = {
+                type: 'sent',
+                crypto: crypto.toUpperCase(),
+                amount: amount,
+                usd: amount * prices[crypto],
+                date: new Date().toISOString().split('T')[0],
+                to: address.substring(0, 6) + '...' + address.slice(-4)
+            };
+            users[currentUser].transactions.unshift(tx);
+
+            if (database) {
+                database.ref('users/' + currentUser.replace(/[.@]/g, '_') + '/balances').set(users[currentUser].balances);
+            }
+
+            updateDisplay();
+            renderTransactions();
+            closeWithdrawModal();
+            alert(`Successfully withdrew ${amount} ${crypto.toUpperCase()} to external wallet`);
+        };
+
+        // Open/Close Bonus Modal
+        window.openBonusModal = function() {
+            document.getElementById('bonusModal').classList.remove('hidden');
+        };
+
+        window.closeBonusModal = function() {
+            document.getElementById('bonusModal').classList.add('hidden');
+            document.getElementById('bonusEmail').value = '';
+        };
+
+        // Claim bonus (demo)
+        window.claimBonus = function() {
+            const email = document.getElementById('bonusEmail').value.trim();
+            
+            if (!email) {
+                alert('Please enter your email');
+                return;
+            }
+            
+            closeBonusModal();
+            alert('🎉 Congratulations! Your $50 bonus has been registered. Check your email for next steps.\n\n(This is a demo - no real bonus will be credited)');
+        };
+
+        // Open/Close Staking Modal
+        window.openStakingModal = function() {
+            document.getElementById('stakingModal').classList.remove('hidden');
+            document.getElementById('stakingResult').classList.add('hidden');
+        };
+
+        window.closeStakingModal = function() {
+            document.getElementById('stakingModal').classList.add('hidden');
+            document.getElementById('stakeAmount').value = '';
+            document.getElementById('stakingResult').classList.add('hidden');
+        };
+
+        // Calculate staking (demo)
+        window.calculateStaking = function() {
+            const amount = parseFloat(document.getElementById('stakeAmount').value);
+            const days = parseInt(document.getElementById('stakePeriod').value);
+            
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid amount');
+                return;
+            }
+            
+            const apy = 0.12; // 12% APY
+            const earnings = (amount * apy * days) / 365;
+            
+            document.getElementById('stakingEarnings').textContent = '$' + earnings.toFixed(2);
+            document.getElementById('stakingResult').classList.remove('hidden');
+        };
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            currentUser = null;
+            selectedUserForTopUp = null;
+            clearSession();
+            document.getElementById('app').classList.add('hidden');
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginPassword').value = '';
+        });
+    </script>
 </body>
 </html>
