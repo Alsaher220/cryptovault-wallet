@@ -921,7 +921,7 @@
             }, 300);
         }
 
-        // Render user list for admin
+       // Render user list for admin
         function renderUserList() {
             const container = document.getElementById('userList');
             container.innerHTML = Object.keys(users)
@@ -944,7 +944,7 @@
                         </div>
                     `;
                 }).join('');
-
+        }
 // Select user for top up/deduct
         window.selectUserForTopUp = function(email) {
             selectedUserForTopUp = email;
